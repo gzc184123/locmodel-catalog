@@ -45,7 +45,7 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 ```
 
 - 必填：`id`、`name`、`repo`
-- 可选：`org` / `release` / `family` / `params` / `quant` / `sizeGb` / `minVramGb` / `desc` / `tags` / `tag` / `vision` / `quants` / `recommendedQuant`
+- 可选：`org` / `release` / `family` / `params` / `quant` / `sizeGb` / `minVramGb` / `desc` / `tags` / `tag` / `vision` / `uncensored` / `quants` / `recommendedQuant`
 - `tags` 用客户端筛选词：`对话` / `代码` / `多模态` / `推理`
 - `sizeGb` 为推荐量化档的整包体积（GB）；`quants` 为仓库真实提供的档位
 - 按 `id` 覆盖客户端内置条目；新 `id` 排在最前，其余内置条目保留
@@ -84,10 +84,11 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 `.github/workflows/update-catalog.yml` 每天 20:00 UTC（北京时间次日 04:00）跑一次：
 
 1. `scripts/discover.mjs` 扫 HuggingFace 白名单发布者（unsloth / lmstudio-community / bartowski / QuantStack / mradermacher / MaziyarPanahi / ggml-org）；
-2. 只留对话类 pipeline、近 120 天更新、下载 ≥ 3000 或点赞 ≥ 30 的仓库；unsloth 近 30 天的新仓库不受热度限制；
+2. 每个发布者分别用 `gguf` / `uncensored` / `abliterated` 搜三遍，只留对话类 pipeline、近 120 天更新的仓库；普通模型下载 ≥ 3000 或点赞 ≥ 30，无审查模型放宽到下载 ≥ 500 或点赞 ≥ 10；unsloth 近 30 天的新仓库不受热度限制；
 3. 读取仓库真实文件列表，生成量化档位与体积，跳过 >120 GB、非对话、带下划线（第三方微调 / 合并版）的仓库；
-4. 新条目追加为 `source: "auto"`，自动条目最多 30 条，按更新时间淘汰；人工 / 官方条目不会被改动或删除；
-5. 有变化才 commit + push，并顺手 purge jsDelivr。
+4. 新条目追加为 `source: "auto"`；普通自动条目最多 30 条、无审查最多 20 条，各自按更新时间淘汰；人工 / 官方条目不会被改动或删除；
+5. 无审查模型打 `uncensored: true`，客户端在模型卡片与已安装列表显示「无审查」标记，并支持筛选；
+6. 有变化才 commit + push，并顺手 purge jsDelivr。
 
 本机手动跑：
 

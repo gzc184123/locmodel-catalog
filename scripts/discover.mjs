@@ -35,6 +35,12 @@ const FAST_TRACK_AUTHOR = "unsloth";
 const FAST_TRACK_DAYS = 30;
 /** 自动收录条数上限，超出按更新时间淘汰 */
 const AUTO_LIMIT = argValue("--limit", 30);
+/** 无审查模型单独一份配额，热度门槛也放宽 */
+const UNCENSORED_LIMIT = argValue("--uncensored-limit", 20);
+const UNCENSORED_MIN_DOWNLOADS = 500;
+const UNCENSORED_MIN_LIKES = 10;
+/** 无审查 / 去审查微调的关键词 */
+const UNCENSORED_RE = /uncensored|abliterated|unfiltered|nsfw|de[-_]?censor|jailbreak/i;
 /** 推荐量化档位优先级：优先 4 bit 附近，其次低比特，最后高比特 */
 const QUANT_PREF = [
   "UD-Q4_K_XL",
@@ -57,7 +63,7 @@ const QUANT_PREF = [
 /** 超过这个体积的模型对本地客户端没有意义，不收录 */
 const MAX_SIZE_GB = 120;
 /** 明显不是对话模型的仓库名，直接跳过 */
-const SKIP_NAME = /embed|rerank|classif|whisper|tts|audio|ocr|sentence|reward|guard|diffus|flux|wan2|ltx|image|video|sd-|stable-diffusion|minimax-h3|abliterated|uncensored|nsfw|roleplay|erotic|jailbreak|de-censor/i;
+const SKIP_NAME = /embed|rerank|classif|whisper|tts|audio|ocr|sentence|reward|guard|diffus|flux|wan2|ltx|image|video|sd-|stable-diffusion|minimax-h3|for[-_\s]?testing|tinyllama-for-testing/i;
 
 /** 归一化名称，用来判断「同一个模型的不同发布者仓库」 */
 function nameKey(text) {
@@ -158,6 +164,7 @@ function toItem(author, detail) {
     files.some((f) => f.rfilename.toLowerCase().includes("mmproj")) ||
     (detail.tags || []).includes("image-text-to-text");
   const params = paramsOf(repo);
+  const uncensored = isUncensored(repo, detail.tags);
 
   return {
     id: idOf(repo),
@@ -172,12 +179,21 @@ function toItem(author, detail) {
     tags: tagsOf(repo, { tags: detail.tags, vision }),
     repo: detail.id,
     vision,
+    uncensored,
     quants: ordered,
     recommendedQuant: pick,
     source: "auto",
     lastModified: detail.lastModified || "",
     downloads: detail.downloads || 0,
   };
+}
+
+/** 仓库名或 HF 标签里带无审查 / 去审查字样 */
+function isUncensored(repo, tags) {
+  return (
+    UNCENSORED_RE.test(repo) ||
+    (tags || []).some((t) => UNCENSORED_RE.test(String(t)))
+  );
 }
 
 function daysAgo(iso) {
@@ -197,16 +213,22 @@ async function main() {
   const candidates = [];
   const seenNames = new Set();
   for (const author of AUTHORS) {
-    const list = await getJson(
-      `https://huggingface.co/api/models?author=${encodeURIComponent(author)}` +
-        `&search=gguf&sort=lastModified&direction=-1&limit=100`
-    );
-    if (!Array.isArray(list)) {
-      console.warn(`${author}: 列表拉取失败`);
-      continue;
+    // 主清单 + 无审查关键词各搜一遍，无审查模型下载量通常低一些
+    const lists = [];
+    for (const query of ["gguf", "uncensored", "abliterated"]) {
+      const list = await getJson(
+        `https://huggingface.co/api/models?author=${encodeURIComponent(author)}` +
+          `&search=${query}&sort=lastModified&direction=-1&limit=100`
+      );
+      if (!Array.isArray(list)) {
+        console.warn(`${author} / ${query}: 列表拉取失败`);
+        continue;
+      }
+      lists.push(...list);
     }
-    console.log(`${author}: ${list.length} 个 GGUF 仓库`);
-    for (const m of list) {
+    const unique = [...new Map(lists.map((m) => [m.id, m])).values()];
+    console.log(`${author}: ${unique.length} 个 GGUF 仓库`);
+    for (const m of unique) {
       if (known.has(m.id.toLowerCase())) continue;
       const name = m.id.split("/")[1] || "";
       if (SKIP_NAME.test(name)) continue;
@@ -214,7 +236,10 @@ async function main() {
       if (name.includes("_")) continue;
       if (m.pipeline_tag && !CHAT_PIPELINES.has(m.pipeline_tag)) continue;
       if (daysAgo(m.lastModified) > DAYS) continue;
-      const hot = (m.downloads || 0) >= MIN_DOWNLOADS || (m.likes || 0) >= MIN_LIKES;
+      const uncensored = isUncensored(name, m.tags);
+      const hot =
+        (m.downloads || 0) >= (uncensored ? UNCENSORED_MIN_DOWNLOADS : MIN_DOWNLOADS) ||
+        (m.likes || 0) >= (uncensored ? UNCENSORED_MIN_LIKES : MIN_LIKES);
       const fresh = author === FAST_TRACK_AUTHOR && daysAgo(m.lastModified) <= FAST_TRACK_DAYS;
       if (!hot && !fresh) continue;
       // 同一模型只保留优先级最高发布者的仓库
@@ -228,52 +253,66 @@ async function main() {
   // 官方发布者优先，其次按更新时间倒序；条数上限时优先收最新
   candidates.sort((a, b) => a._rank - b._rank || String(b.lastModified).localeCompare(String(a.lastModified)));
   console.log(`新候选：${candidates.length} 个，逐个读取文件列表…`);
-  const added = [];
+  const addedRegular = [];
+  const addedUncensored = [];
   const addedIds = new Set();
   const addedNames = new Set(knownNames);
   for (const m of candidates) {
-    if (added.length >= AUTO_LIMIT) break;
+    if (addedRegular.length >= AUTO_LIMIT && addedUncensored.length >= UNCENSORED_LIMIT) break;
     const detail = await getJson(
       `https://huggingface.co/api/models/${m.id}?blobs=true`
     );
     if (!detail) continue;
     const item = toItem(m.id.split("/")[0], { ...detail, downloads: m.downloads, likes: m.likes });
     if (!item) continue;
+    const bucket = item.uncensored ? addedUncensored : addedRegular;
+    if (bucket.length >= (item.uncensored ? UNCENSORED_LIMIT : AUTO_LIMIT)) continue;
     const nameFp = nameKey(item.name);
     if (addedIds.has(item.id) || addedNames.has(nameFp) || items.some((x) => x.id === item.id)) continue;
     addedIds.add(item.id);
     addedNames.add(nameFp);
-    added.push(item);
-    console.log(`  + ${item.name} (${item.repo}, ${item.quant}, ${item.sizeGb} GB)`);
+    bucket.push(item);
+    console.log(
+      `  + ${item.name} (${item.repo}, ${item.quant}, ${item.sizeGb} GB)${item.uncensored ? " [无审查]" : ""}`
+    );
     await sleep(300);
   }
 
+  const added = [...addedRegular, ...addedUncensored];
   if (!added.length) {
     console.log("没有新增模型，清单保持不变");
     return;
   }
 
-  // 保留人工 / 官方条目在前，自动条目按更新时间倒序追加，超出上限的旧条目淘汰
+  // 保留人工 / 官方条目在前；自动条目分普通 / 无审查两份配额，各自按更新时间倒序
   const manual = items.filter((m) => m.source !== "auto");
-  const auto = [
-    ...added,
-    ...items.filter((m) => m.source === "auto").sort((a, b) => String(b.lastModified).localeCompare(String(a.lastModified))),
-  ].slice(0, AUTO_LIMIT);
+  const prevAuto = items.filter((m) => m.source === "auto");
+  const byNewest = (a, b) => String(b.lastModified).localeCompare(String(a.lastModified));
+  const regular = [...addedRegular, ...prevAuto.filter((m) => !m.uncensored)]
+    .sort(byNewest)
+    .slice(0, AUTO_LIMIT);
+  const uncensored = [...addedUncensored, ...prevAuto.filter((m) => m.uncensored)]
+    .sort(byNewest)
+    .slice(0, UNCENSORED_LIMIT);
 
   const next = {
     ...catalog,
     updated: new Date().toISOString().slice(0, 10),
-    items: [...manual, ...auto],
+    items: [...manual, ...regular, ...uncensored],
   };
 
   if (DRY) {
-    console.log(`[dry-run] 将新增 ${added.length} 条，共 ${next.items.length} 条`);
+    console.log(
+      `[dry-run] 将新增 ${added.length} 条（无审查 ${addedUncensored.length} 条），共 ${next.items.length} 条`
+    );
     console.log(JSON.stringify(added[0], null, 2));
     return;
   }
 
   await writeFile(CATALOG, `${JSON.stringify(next, null, 2)}\n`, "utf8");
-  console.log(`已写入 catalog.json：新增 ${added.length} 条，共 ${next.items.length} 条`);
+  console.log(
+    `已写入 catalog.json：新增 ${added.length} 条（无审查 ${addedUncensored.length} 条），共 ${next.items.length} 条`
+  );
 }
 
 main().catch((err) => {
