@@ -220,11 +220,13 @@ function estimateSpeed(sizeGb, vramGb, ramGb, params) {
   if (moe) {
     const total = Number(moe[1]);
     const active = Number(moe[2]);
-    // 整包要能装进显存 + 内存，专家才可能常驻；否则还是要从硬盘读
-    if (total > 0 && active > 0 && active < total && sizeGb <= vramGb + ramGb) {
+    // MoE 每步只读激活专家；总权重超出显存 + 内存时按需从硬盘换入，给一点折扣
+    if (total > 0 && active > 0 && active < total) {
       const activeGb = sizeGb * (active / total);
       if (activeGb <= Math.max(0, vramGb)) {
-        tokS = Math.max(tokS, (0.72 / (activeGb / 800)) * 0.7);
+        let moeTokS = (0.72 / (activeGb / 800)) * 0.7;
+        if (sizeGb > vramGb + ramGb) moeTokS *= 0.75;
+        tokS = Math.max(tokS, moeTokS);
       }
     }
   }

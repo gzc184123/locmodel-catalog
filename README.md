@@ -86,7 +86,7 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 1. `scripts/discover.mjs` 扫 HuggingFace 白名单发布者（unsloth / lmstudio-community / bartowski / QuantStack / mradermacher / MaziyarPanahi / ggml-org）；
 2. 每个发布者分别用 `gguf` / `uncensored` / `abliterated` 搜三遍，只留对话类 pipeline、近 120 天更新的仓库；普通模型下载 ≥ 3000 或点赞 ≥ 30，无审查模型放宽到下载 ≥ 500 或点赞 ≥ 10；unsloth 近 30 天的新仓库不受热度限制；
 3. 读取仓库真实文件列表，生成量化档位与体积，跳过 >100 GB、非对话、带下划线（第三方微调 / 合并版）、测试仓库（for-testing / vllm）的仓库；
-4. **按目标机器过滤**：16 GB 显存 + 64 GB 内存，用与客户端一致的粗估公式算 tok/s，预计低于 **10 tok/s** 的不收录；旧条目每次也按同一标准复查并淘汰；
+4. **按目标机器过滤**：16 GB 显存 + 64 GB 内存，用与客户端一致的粗估公式算 tok/s，预计低于 **10 tok/s** 的不收录；MoE 按激活参数估算，整包超出显存 + 内存时打 75 折（专家按需换入），所以 76–80 GB 的 MoE 仍可收录，dense 大模型会被淘汰；旧条目每次也按同一标准复查并淘汰；
 5. 新条目追加为 `source: "auto"`；普通自动条目最多 30 条、无审查最多 20 条，各自按更新时间淘汰；人工 / 官方条目不会被改动或删除；
 6. 无审查模型打 `uncensored: true`，客户端在模型卡片与已安装列表显示「无审查」标记，并支持筛选；
 7. 有变化才 commit + push，并顺手 purge jsDelivr。
