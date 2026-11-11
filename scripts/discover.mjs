@@ -405,12 +405,26 @@ async function main() {
 
   // 外部推荐：LM Studio 官方仓库 + Ollama 模型库，映射到可下载的 HF GGUF
   const externalAdded = [];
-  const externalTargets = [...(await lmStudioCandidates(16)), ...(await ollamaCandidates(24))];
+  const externalTargets = [...(await lmStudioCandidates(24)), ...(await ollamaCandidates(24))];
+  // 已经在我们清单里的同一仓库，也补上「LM Studio / Ollama」标记
+  const tagByRepo = new Map(externalTargets.map((m) => [m.id.toLowerCase(), m._tag]));
   const collides = (fp) =>
     [...addedNames].some((k) => k && (k === fp || k.startsWith(fp) || fp.startsWith(k)));
+  const promotedIds = new Set();
   for (const m of externalTargets) {
     const src = m._source;
     if (externalAdded.filter((x) => x.source === src).length >= EXTERNAL_CAP[src]) continue;
+    const itemId = idOf(m.id.split("/")[1] || "");
+    const existing = items.find((x) => x.id === itemId);
+    if (existing) {
+      // 已在清单里：自动条目转到对应来源，官方条目只在最后补标记
+      if (existing.source === "manual" || existing.source === src || promotedIds.has(itemId)) continue;
+      promotedIds.add(itemId);
+      addedIds.add(itemId);
+      externalAdded.push({ ...existing, source: src, tag: m._tag });
+      console.log(`  + [${m._tag}] ${existing.name}（已在清单，转入该来源）`);
+      continue;
+    }
     if (known.has(m.id.toLowerCase())) continue;
     const detail = await getJson(`https://huggingface.co/api/models/${m.id}?blobs=true`);
     if (!detail) continue;
@@ -464,9 +478,11 @@ async function main() {
   }
   const byNewest = (a, b) => String(b.lastModified).localeCompare(String(a.lastModified));
   const regular = [...addedRegular, ...prevAuto.filter((m) => !m.uncensored)]
+    .filter((m) => !promotedIds.has(m.id))
     .sort(byNewest)
     .slice(0, AUTO_LIMIT);
   const uncensored = [...addedUncensored, ...prevAuto.filter((m) => m.uncensored)]
+    .filter((m) => !promotedIds.has(m.id))
     .sort(byNewest)
     .slice(0, UNCENSORED_LIMIT);
   const external = Object.entries(EXTERNAL_CAP).flatMap(([src, cap]) =>
@@ -475,10 +491,16 @@ async function main() {
       .slice(0, cap)
   );
 
+  const applyTag = (list) =>
+    list.map((m) => {
+      const tag = tagByRepo.get(String(m.repo || "").toLowerCase());
+      return tag && !m.tag ? { ...m, tag } : m;
+    });
+
   const next = {
     ...catalog,
     updated: new Date().toISOString().slice(0, 10),
-    items: [...manual, ...regular, ...uncensored, ...external],
+    items: [...applyTag(manual), ...applyTag(regular), ...applyTag(uncensored), ...applyTag(external)],
   };
 
   if (DRY) {
