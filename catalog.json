@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "updated": "2026-11-11",
+  "items": [
+    {
+      "id": "qwen3.8-flash-next",
+      "name": "Qwen3.8 Flash Next",
+      "family": "qwen",
+      "params": "9B",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.7,
+      "minVramGb": 8,
+      "desc": "日常对话与 Agent，响应快。",
+      "tags": ["对话", "Agent", "最新"],
+      "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
+      "tag": "官方新榜",
+      "vision": true
+    },
+    {
+      "id": "qwen3.5-9b",
+      "name": "Qwen3.5 9B",
+      "family": "qwen",
+      "params": "9B",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.6,
+      "minVramGb": 7,
+      "desc": "中文写作与日常问答的均衡档。",
+      "tags": ["对话", "写作", "中文"],
+      "repo": "unsloth/Qwen3.5-9B-GGUF",
+      "vision": false
+    }
+  ]
+}
