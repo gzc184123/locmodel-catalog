@@ -169,7 +169,7 @@ function variantsOf(detail) {
       sizeGb: Math.round((f.size / 1024 ** 3) * 10) / 10,
     });
   }
-  return out.sort((a, b) => b.sizeGb - a.sizeGb).slice(0, 80);
+  return out.sort((a, b) => b.sizeGb - a.sizeGb);
 }
 
 /** 给 media.json 的每条记录补 / 刷新 variants，选中哪档就下哪档 */
