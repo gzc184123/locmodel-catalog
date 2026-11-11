@@ -1,7 +1,7 @@
 {
   "version": 2,
   "updated": "2026-11-11",
-  "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单（对照用）：6 个画图 + 6 个视频预设。sizeGb 为主体权重在推荐量化档的体积，不含文本编码器与 VAE；components 为官方安装时一并下载的组件。当前客户端的多组件下载走应用内 sd 预设，本文件暂不被程序读取。",
+  "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
   "image": [
     {
       "id": "z-image-turbo-q4_k",
@@ -11,10 +11,23 @@
       "quant": "Q4_K",
       "sizeGb": 3.6,
       "note": "官方默认画图模型，8 步出图，4 GB 显存也能跑；2025-11 发布，可配改图模型做参考图重绘。",
-      "quants": ["Q3_K", "Q4_K", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q3_K",
+        "Q4_K",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF", "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/z_image_turbo", "file": "split_files/vae/ae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+          "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/z_image_turbo",
+          "file": "split_files/vae/ae.safetensors"
+        }
       ],
       "appPreset": "z-image-turbo-q4_k"
     },
@@ -26,10 +39,23 @@
       "quant": "Q8_0",
       "sizeGb": 6.13,
       "note": "同模型高质量档，16 GB 显存可整块加载。",
-      "quants": ["Q3_K", "Q4_K", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q3_K",
+        "Q4_K",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF", "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/z_image_turbo", "file": "split_files/vae/ae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+          "file": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/z_image_turbo",
+          "file": "split_files/vae/ae.safetensors"
+        }
       ],
       "appPreset": "z-image-turbo-q8_0"
     },
@@ -41,11 +67,28 @@
       "quant": "Q4_K",
       "sizeGb": 3.91,
       "note": "阿里 Qwen 最新版，画质和图里的中英文字都比上一代更好，体积小一半，还能一句话改图、生成透明背景 PNG；2026-09 发布。",
-      "quants": ["Q3_K", "Q4_K", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q3_K",
+        "Q4_K",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "Qwen/Qwen3-VL-8B-Instruct-GGUF", "file": "Qwen3VL-8B-Instruct-Q4_K_M.gguf" },
-        { "role": "mmproj", "repo": "Qwen/Qwen3-VL-8B-Instruct-GGUF", "file": "mmproj-Qwen3VL-8B-Instruct-F16.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/Qwen-Image-2.1", "file": "vae/qwen_image_2.1_vae_bf16.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "Qwen/Qwen3-VL-8B-Instruct-GGUF",
+          "file": "Qwen3VL-8B-Instruct-Q4_K_M.gguf"
+        },
+        {
+          "role": "mmproj",
+          "repo": "Qwen/Qwen3-VL-8B-Instruct-GGUF",
+          "file": "mmproj-Qwen3VL-8B-Instruct-F16.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/Qwen-Image-2.1",
+          "file": "vae/qwen_image_2.1_vae_bf16.safetensors"
+        }
       ],
       "appPreset": "qwen-image-2.1-q4_k"
     },
@@ -57,10 +100,25 @@
       "quant": "Q4_K_M",
       "sizeGb": 12.17,
       "note": "画面里的中文、英文文字最准，适合海报、封面、带字的图；2025-08 发布。",
-      "quants": ["Q2_K", "Q3_K_M", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q2_K",
+        "Q3_K_M",
+        "Q4_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF", "file": "Qwen2.5-VL-7B-Instruct.Q4_K_M.gguf" },
-        { "role": "vae", "repo": "VAE/Qwen_Image-VAE.safetensors", "file": "Qwen_Image-VAE.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF",
+          "file": "Qwen2.5-VL-7B-Instruct.Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "VAE/Qwen_Image-VAE.safetensors",
+          "file": "Qwen_Image-VAE.safetensors"
+        }
       ],
       "appPreset": "qwen-image-q4_k_m"
     },
@@ -72,11 +130,30 @@
       "quant": "Q4_K_M",
       "sizeGb": 11.96,
       "note": "专门改图：一句话换背景、换衣服、改图里的文字，人物长相基本不变，中文指令最准；2511 版，2025-12 发布。",
-      "quants": ["Q2_K", "Q3_K_M", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q2_K",
+        "Q3_K_M",
+        "Q4_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF", "file": "Qwen2.5-VL-7B-Instruct.Q4_K_M.gguf" },
-        { "role": "mmproj", "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF", "file": "Qwen2.5-VL-7B-Instruct.mmproj-Q8_0.gguf" },
-        { "role": "vae", "repo": "VAE/Qwen_Image-VAE.safetensors", "file": "Qwen_Image-VAE.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF",
+          "file": "Qwen2.5-VL-7B-Instruct.Q4_K_M.gguf"
+        },
+        {
+          "role": "mmproj",
+          "repo": "mradermacher/Qwen2.5-VL-7B-Instruct-GGUF",
+          "file": "Qwen2.5-VL-7B-Instruct.mmproj-Q8_0.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "VAE/Qwen_Image-VAE.safetensors",
+          "file": "Qwen_Image-VAE.safetensors"
+        }
       ],
       "appPreset": "qwen-image-edit-q4_k_m"
     },
@@ -88,10 +165,22 @@
       "quant": "q4_k",
       "sizeGb": 6.41,
       "note": "4 步出图，风格化强；2024-08 发布。",
-      "quants": ["q3_k", "q4_k", "q8_0"],
+      "quants": [
+        "q3_k",
+        "q4_k",
+        "q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "comfyanonymous/flux_text_encoders", "file": "clip_l.safetensors" },
-        { "role": "text_encoder", "repo": "comfyanonymous/flux_text_encoders", "file": "t5xxl_fp16.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "comfyanonymous/flux_text_encoders",
+          "file": "clip_l.safetensors"
+        },
+        {
+          "role": "text_encoder",
+          "repo": "comfyanonymous/flux_text_encoders",
+          "file": "t5xxl_fp16.safetensors"
+        }
       ],
       "appPreset": "flux1-schnell-q4"
     },
@@ -103,12 +192,368 @@
       "quant": "Q4_0",
       "sizeGb": 2.29,
       "note": "小显存友好（8–12 GB），还能按一句话改图；2026-01 发布。",
-      "quants": ["Q4_0", "Q8_0"],
+      "quants": [
+        "Q4_0",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/Qwen3-4B-GGUF", "file": "Qwen3-4B-Q4_K_M.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/flux2-klein-4B", "file": "split_files/vae/flux2-vae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/Qwen3-4B-GGUF",
+          "file": "Qwen3-4B-Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/flux2-klein-4B",
+          "file": "split_files/vae/flux2-vae.safetensors"
+        }
       ],
       "appPreset": "flux2-klein-4b-q4"
+    },
+    {
+      "id": "flux-3-image-klein",
+      "name": "flux 3 image klein",
+      "kind": "image",
+      "repo": "leejet/flux-3-image-klein-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 3.3,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K",
+        "Q4_K",
+        "Q5_K"
+      ],
+      "source": "auto",
+      "downloads": 63403,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-2-klein-9b",
+      "name": "FLUX.2 klein 9B",
+      "kind": "image",
+      "repo": "leejet/FLUX.2-klein-9B-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 5.2,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q8_0"
+      ],
+      "source": "auto",
+      "downloads": 29211,
+      "lastModified": ""
+    },
+    {
+      "id": "moss-image-sft",
+      "name": "MOSS Image SFT",
+      "kind": "image",
+      "repo": "leejet/MOSS-Image-SFT-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 3.1,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K",
+        "Q4_K",
+        "Q5_K"
+      ],
+      "source": "auto",
+      "downloads": 25281,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-2-klein-base-4b",
+      "name": "FLUX.2 klein base 4B",
+      "kind": "image",
+      "repo": "leejet/FLUX.2-klein-base-4B-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 2.3,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q8_0"
+      ],
+      "source": "auto",
+      "downloads": 8053,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-2-klein-base-9b",
+      "name": "FLUX.2 klein base 9B",
+      "kind": "image",
+      "repo": "leejet/FLUX.2-klein-base-9B-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 5.2,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q8_0"
+      ],
+      "source": "auto",
+      "downloads": 4583,
+      "lastModified": ""
+    },
+    {
+      "id": "ideogram-4",
+      "name": "ideogram 4",
+      "kind": "image",
+      "repo": "leejet/ideogram-4-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 10.5,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0"
+      ],
+      "source": "auto",
+      "downloads": 4299,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-3-image-klein-base",
+      "name": "flux 3 image klein base",
+      "kind": "image",
+      "repo": "leejet/flux-3-image-klein-base-GGUF",
+      "quant": "Q4_0",
+      "sizeGb": 3.3,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_0",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K",
+        "Q4_K",
+        "Q5_K"
+      ],
+      "source": "auto",
+      "downloads": 3238,
+      "lastModified": ""
+    },
+    {
+      "id": "qwen-image-2-1",
+      "name": "Qwen Image 2.1",
+      "kind": "image",
+      "repo": "unsloth/Qwen-Image-2.1-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 3.9,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q3_K_XL",
+        "Q5_K_S",
+        "Q6_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 1610213,
+      "lastModified": ""
+    },
+    {
+      "id": "qwen-image-2-1-turbo",
+      "name": "Qwen Image 2.1 Turbo",
+      "kind": "image",
+      "repo": "unsloth/Qwen-Image-2.1-Turbo-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 3.9,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q3_K_XL",
+        "Q5_K_S",
+        "Q6_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 1356934,
+      "lastModified": ""
+    },
+    {
+      "id": "z-image-turbo",
+      "name": "Z Image Turbo",
+      "kind": "image",
+      "repo": "unsloth/Z-Image-Turbo-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 3.6,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 900469,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "kind": "image",
+      "repo": "unsloth/FLUX.2-klein-4B-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 2.4,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 485892,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-2-klein-9b",
+      "name": "FLUX.2 klein 9B",
+      "kind": "image",
+      "repo": "unsloth/FLUX.2-klein-9B-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.3,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 472716,
+      "lastModified": ""
+    },
+    {
+      "id": "qwen-image-2512",
+      "name": "Qwen Image 2512",
+      "kind": "image",
+      "repo": "unsloth/Qwen-Image-2512-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 12.4,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 444744,
+      "lastModified": ""
+    },
+    {
+      "id": "flux-3-image-klein",
+      "name": "flux 3 image klein",
+      "kind": "image",
+      "repo": "unsloth/flux-3-image-klein-GGUF",
+      "quant": "UD-Q4_K_XL",
+      "sizeGb": 3.7,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "UD-Q4_K_XL",
+        "Q4_K_M",
+        "UD-Q3_K_XL",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "UD-Q2_K_XL",
+        "UD-Q5_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 331107,
+      "lastModified": ""
+    },
+    {
+      "id": "qwen-image-edit-2509",
+      "name": "Qwen Image Edit 2509",
+      "kind": "image",
+      "repo": "QuantStack/Qwen-Image-Edit-2509-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 12.2,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 194831,
+      "lastModified": ""
     }
   ],
   "video": [
@@ -121,8 +566,16 @@
       "sizeGb": 2.64,
       "note": "阿里通义万相最轻量的视频模型，8 GB 显存就能生成 480P 短视频，适合先体验；2025-02 发布。",
       "components": [
-        { "role": "text_encoder", "repo": "city96/umt5-xxl-encoder-gguf", "file": "umt5-xxl-encoder-Q8_0.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged", "file": "split_files/vae/wan_2.1_vae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "city96/umt5-xxl-encoder-gguf",
+          "file": "umt5-xxl-encoder-Q8_0.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+          "file": "split_files/vae/wan_2.1_vae.safetensors"
+        }
       ],
       "appPreset": "wan2.1-t2v-1.3b"
     },
@@ -134,10 +587,22 @@
       "quant": "Q4_K_M",
       "sizeGb": 3.2,
       "note": "画质明显更好，支持文字生成视频，也能上传一张图片让它动起来；2025-07 发布。",
-      "quants": ["Q4_K_M", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q4_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "city96/umt5-xxl-encoder-gguf", "file": "umt5-xxl-encoder-Q8_0.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "file": "split_files/vae/wan2.2_vae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "city96/umt5-xxl-encoder-gguf",
+          "file": "umt5-xxl-encoder-Q8_0.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+          "file": "split_files/vae/wan2.2_vae.safetensors"
+        }
       ],
       "appPreset": "wan2.2-ti2v-5b-q4_k_m"
     },
@@ -149,12 +614,34 @@
       "quant": "Q4_K_M",
       "sizeGb": 17.98,
       "note": "开源图生视频画质天花板，上传一张图让它动起来，动作幅度大、细节稳定；两个 14B 专家轮流工作，较慢。",
-      "quants": ["Q3_K_M", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q3_K_M",
+        "Q4_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "diffusion_model_high", "repo": "QuantStack/Wan2.2-I2V-A14B-GGUF", "file": "HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf" },
-        { "role": "diffusion_model_low", "repo": "QuantStack/Wan2.2-I2V-A14B-GGUF", "file": "LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf" },
-        { "role": "text_encoder", "repo": "city96/umt5-xxl-encoder-gguf", "file": "umt5-xxl-encoder-Q8_0.gguf" },
-        { "role": "vae", "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged", "file": "split_files/vae/wan2.2_vae.safetensors" }
+        {
+          "role": "diffusion_model_high",
+          "repo": "QuantStack/Wan2.2-I2V-A14B-GGUF",
+          "file": "HighNoise/Wan2.2-I2V-A14B-HighNoise-Q4_K_M.gguf"
+        },
+        {
+          "role": "diffusion_model_low",
+          "repo": "QuantStack/Wan2.2-I2V-A14B-GGUF",
+          "file": "LowNoise/Wan2.2-I2V-A14B-LowNoise-Q4_K_M.gguf"
+        },
+        {
+          "role": "text_encoder",
+          "repo": "city96/umt5-xxl-encoder-gguf",
+          "file": "umt5-xxl-encoder-Q8_0.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+          "file": "split_files/vae/wan2.2_vae.safetensors"
+        }
       ],
       "appPreset": "wan2.2-i2v-a14b-q4_k_m"
     },
@@ -166,12 +653,34 @@
       "quant": "Q4_K_M",
       "sizeGb": 13.22,
       "note": "Lightricks 视频和声音一起生成：对白、音效、背景音乐；支持 720P 和图片动起来，蒸馏版 8 步出片，速度快；2026 年。",
-      "quants": ["Q3_K_M", "Q4_K_M", "Q5_K_M", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q3_K_M",
+        "Q4_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/gemma-3-12b-it-qat-GGUF", "file": "gemma-3-12b-it-qat-UD-Q4_K_XL.gguf" },
-        { "role": "connectors", "repo": "unsloth/LTX-2.3-GGUF", "file": "text_encoders/ltx-2.3-22b-distilled_embeddings_connectors.safetensors" },
-        { "role": "vae", "repo": "unsloth/LTX-2.3-GGUF", "file": "vae/ltx-2.3-22b-distilled_video_vae.safetensors" },
-        { "role": "audio_vae", "repo": "unsloth/LTX-2.3-GGUF", "file": "vae/ltx-2.3-22b-distilled_audio_vae.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/gemma-3-12b-it-qat-GGUF",
+          "file": "gemma-3-12b-it-qat-UD-Q4_K_XL.gguf"
+        },
+        {
+          "role": "connectors",
+          "repo": "unsloth/LTX-2.3-GGUF",
+          "file": "text_encoders/ltx-2.3-22b-distilled_embeddings_connectors.safetensors"
+        },
+        {
+          "role": "vae",
+          "repo": "unsloth/LTX-2.3-GGUF",
+          "file": "vae/ltx-2.3-22b-distilled_video_vae.safetensors"
+        },
+        {
+          "role": "audio_vae",
+          "repo": "unsloth/LTX-2.3-GGUF",
+          "file": "vae/ltx-2.3-22b-distilled_audio_vae.safetensors"
+        }
       ],
       "appPreset": "ltx-2.3-22b"
     },
@@ -183,11 +692,30 @@
       "quant": "Q4_K",
       "sizeGb": 10.64,
       "note": "MiniMax 海螺，画面 + 立体声一起生成；人物动作和镜头运动自然，可以上传图片当第一帧；模型很大，建议 24 GB 显存 + 64 GB 内存。",
-      "quants": ["Q2_K", "Q3_K", "Q4_K", "Q5_0", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q2_K",
+        "Q3_K",
+        "Q4_K",
+        "Q5_0",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/MiniMax-H3-GGUF", "file": "qwen3vl_32b_minimax_h3-Q4_K_M.gguf" },
-        { "role": "vae", "repo": "unsloth/MiniMax-H3-GGUF", "file": "vae/minimax_h3_video_vae_fp16.safetensors" },
-        { "role": "audio_vae", "repo": "unsloth/MiniMax-H3-GGUF", "file": "vae/minimax_h3_audio_vae_fp32.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "qwen3vl_32b_minimax_h3-Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "vae/minimax_h3_video_vae_fp16.safetensors"
+        },
+        {
+          "role": "audio_vae",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "vae/minimax_h3_audio_vae_fp32.safetensors"
+        }
       ],
       "appPreset": "minimax-h3"
     },
@@ -199,13 +727,154 @@
       "quant": "Q4_K",
       "sizeGb": 10.6,
       "note": "上传 1–4 张参考图（人物、商品、场景），生成的视频里会出现它们，同时生成声音；与 MiniMax-H3 有声视频共用文本编码器和 VAE，已经下过 H3 只需再下主体。",
-      "quants": ["Q2_K", "Q3_K", "Q4_K", "Q5_0", "Q6_K", "Q8_0"],
+      "quants": [
+        "Q2_K",
+        "Q3_K",
+        "Q4_K",
+        "Q5_0",
+        "Q6_K",
+        "Q8_0"
+      ],
       "components": [
-        { "role": "text_encoder", "repo": "unsloth/MiniMax-H3-GGUF", "file": "qwen3vl_32b_minimax_h3-Q4_K_M.gguf" },
-        { "role": "vae", "repo": "unsloth/MiniMax-H3-GGUF", "file": "vae/minimax_h3_video_vae_fp16.safetensors" },
-        { "role": "audio_vae", "repo": "unsloth/MiniMax-H3-GGUF", "file": "vae/minimax_h3_audio_vae_fp32.safetensors" }
+        {
+          "role": "text_encoder",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "qwen3vl_32b_minimax_h3-Q4_K_M.gguf"
+        },
+        {
+          "role": "vae",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "vae/minimax_h3_video_vae_fp16.safetensors"
+        },
+        {
+          "role": "audio_vae",
+          "repo": "unsloth/MiniMax-H3-GGUF",
+          "file": "vae/minimax_h3_audio_vae_fp32.safetensors"
+        }
       ],
       "appPreset": "minimax-h3-ref2v"
+    },
+    {
+      "id": "minimax-h3",
+      "name": "MiniMax H3",
+      "kind": "video",
+      "repo": "leejet/MiniMax-H3-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 73.2,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q2_K_M"
+      ],
+      "source": "auto",
+      "downloads": 209466,
+      "lastModified": ""
+    },
+    {
+      "id": "wan2-2-ti2v-5b",
+      "name": "Wan2.2 TI2V 5B",
+      "kind": "video",
+      "repo": "unsloth/Wan2.2-TI2V-5B-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 3.2,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 385897,
+      "lastModified": ""
+    },
+    {
+      "id": "ltx-2-5",
+      "name": "LTX 2.5",
+      "kind": "video",
+      "repo": "unsloth/LTX-2.5-GGUF",
+      "quant": "UD-Q4_K_XL",
+      "sizeGb": 26.1,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "UD-Q4_K_XL",
+        "Q4_K_M",
+        "UD-Q3_K_XL",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "UD-Q2_K_XL",
+        "UD-Q5_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 341263,
+      "lastModified": ""
+    },
+    {
+      "id": "wan2-2-t2v-a14b",
+      "name": "Wan2.2 T2V A14B",
+      "kind": "video",
+      "repo": "QuantStack/Wan2.2-T2V-A14B-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 18,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 658544,
+      "lastModified": ""
+    },
+    {
+      "id": "wan2-1-14b-vace",
+      "name": "Wan2.1 14B VACE",
+      "kind": "video",
+      "repo": "QuantStack/Wan2.1_14B_VACE-GGUF",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.8,
+      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 128578,
+      "lastModified": ""
     }
   ]
 }

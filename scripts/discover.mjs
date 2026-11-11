@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const CATALOG = join(ROOT, "catalog.json");
+const MEDIA_FILE = join(ROOT, "media.json");
 
 const args = process.argv.slice(2);
 const DRY = args.includes("--dry-run");
@@ -43,6 +44,16 @@ const UNCENSORED_MIN_LIKES = 10;
 const UNCENSORED_RE = /uncensored|abliterated|unfiltered|nsfw|de[-_]?censor|jailbreak/i;
 /** 外部推荐列表（LM Studio / Ollama）各自最多收多少条 */
 const EXTERNAL_CAP = { lmstudio: 12, ollama: 12 };
+/** 画图 / 视频清单：自动收录的 HF 发布者与热度门槛 */
+const MEDIA_AUTHORS = ["leejet", "Comfy-Org", "unsloth", "QuantStack", "city96"];
+const MEDIA_PIPELINES = new Set([
+  "text-to-image",
+  "image-to-image",
+  "text-to-video",
+  "image-to-video",
+]);
+const MEDIA_MIN_DOWNLOADS = 3000;
+const MEDIA_LIMIT = 20;
 /** 推荐量化档位优先级：优先 4 bit 附近，其次低比特，最后高比特 */
 const QUANT_PREF = [
   "UD-Q4_K_XL",
@@ -322,6 +333,77 @@ async function hfRepoForName(name) {
   return matches[0];
 }
 
+/** 自动发现 HuggingFace 上的画图 / 视频仓库（GGUF / safetensors） */
+async function discoverMedia(knownRepos) {
+  const found = [];
+  const seen = new Set();
+  for (const author of MEDIA_AUTHORS) {
+    const list = await getJson(
+      `https://huggingface.co/api/models?author=${encodeURIComponent(author)}` +
+        `&sort=downloads&direction=-1&limit=60`
+    );
+    if (!Array.isArray(list)) continue;
+    for (const m of list) {
+      if ((m.downloads || 0) < MEDIA_MIN_DOWNLOADS) continue;
+      if (!MEDIA_PIPELINES.has(m.pipeline_tag || "")) continue;
+      const repo = m.id.split("/")[1] || "";
+      if (!/gguf|safetensors/i.test(repo)) continue;
+      const key = m.id.toLowerCase();
+      if (knownRepos.has(key) || seen.has(key)) continue;
+      const detail = await getJson(`https://huggingface.co/api/models/${m.id}?blobs=true`);
+      if (!detail) continue;
+      const item = toItem(m.id.split("/")[0], { ...detail, downloads: m.downloads, likes: m.likes });
+      if (!item) continue;
+      seen.add(key);
+      found.push({
+        id: item.id,
+        name: item.name,
+        kind: /video/i.test(m.pipeline_tag || "") ? "video" : "image",
+        repo: item.repo,
+        quant: item.quant,
+        sizeGb: item.sizeGb,
+        note: "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+        quants: item.quants,
+        source: "auto",
+        downloads: m.downloads || 0,
+        lastModified: m.lastModified || "",
+      });
+      if (found.length >= MEDIA_LIMIT) return found;
+      await sleep(250);
+    }
+  }
+  return found;
+}
+
+/** 更新 media.json：官方条目原样保留，自动条目按仓库去重后追加 */
+async function updateMediaFile() {
+  const media = JSON.parse(await readFile(MEDIA_FILE, "utf8"));
+  const all = [...(media.image || []), ...(media.video || [])];
+  const manual = all.filter((m) => m.source !== "auto");
+  const known = new Set(all.map((m) => String(m.repo || "").toLowerCase()));
+  const auto = await discoverMedia(known);
+  const merged = [...manual, ...auto];
+  const next = {
+    ...media,
+    updated: new Date().toISOString().slice(0, 10),
+    note: "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
+    image: merged.filter((m) => m.kind !== "video"),
+    video: merged.filter((m) => m.kind === "video"),
+  };
+  const before = JSON.stringify({ i: media.image, v: media.video });
+  const after = JSON.stringify({ i: next.image, v: next.video });
+  if (before === after) {
+    console.log("media.json 没有变化");
+    return;
+  }
+  if (DRY) {
+    console.log(`[dry-run] media.json 将更新：${next.image.length} 画图 + ${next.video.length} 视频`);
+    return;
+  }
+  await writeFile(MEDIA_FILE, `${JSON.stringify(next, null, 2)}\n`, "utf8");
+  console.log(`media.json 已更新：${next.image.length} 画图 + ${next.video.length} 视频`);
+}
+
 async function main() {
   const catalog = JSON.parse(await readFile(CATALOG, "utf8"));
   const items = catalog.items || [];
@@ -472,6 +554,14 @@ async function main() {
     items.filter((m) => managed.includes(m.source)).length -
     (prevAuto.length + Object.values(prevExternal).reduce((n, list) => n + list.length, 0));
   if (dropped > 0) console.log(`淘汰 ${dropped} 条跑不动的旧条目`);
+
+  // 画图 / 视频清单与对话清单相互独立，失败不影响主目录
+  try {
+    await updateMediaFile();
+  } catch (e) {
+    console.warn(`media.json 更新失败：${e.message}`);
+  }
+
   if (!added.length && !externalAdded.length && !dropped) {
     console.log("没有新增模型，清单保持不变");
     return;
