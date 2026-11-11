@@ -134,6 +134,60 @@ function quantOf(file) {
   return m ? m[1].toUpperCase().replace(/^FP16$/, "F16") : null;
 }
 
+/** 主体权重文件的量化档位：比 quantOf 宽松，兼容 _fp16、split_files/... 这类命名 */
+const QUANT_TAIL_RE =
+  /(?:^|[-_.])(UD-[A-Za-z0-9_]+|IQ\d[A-Za-z0-9_]*|Q\d[A-Za-z0-9_]*|FP16|F16|BF16|MXFP4)$/i;
+
+function variantQuantOf(file) {
+  const path = String(file || "");
+  // 文本编码器 / VAE / 连接器不是主体权重
+  if (/(^|\/)(vae|text_encoders|audio_vae|connectors|mmproj)\//i.test(path)) return null;
+  if (/mmproj|text_encoder|audio_vae|connector/i.test(path)) return null;
+  const base = path.split("/").pop().replace(/\.(gguf|safetensors|ckpt)$/i, "");
+  // 分卷算整套体积，不能只取其中一片
+  if (/-\d{4,5}-of-\d{4,5}$/i.test(base)) return null;
+  const m = base.match(QUANT_TAIL_RE);
+  return m ? m[1].toUpperCase().replace(/^FP16$/, "F16") : null;
+}
+
+/**
+ * 仓库文件列表 → 所有量化档的主体文件与体积。
+ * 同一仓库可能有多个模型（ComfyUI repackaged / distilled 与 dev），
+ * 这里全部保留，客户端会按「基础预设的主体文件名前缀」挑出同一个模型的那组。
+ */
+function variantsOf(detail) {
+  const out = [];
+  const seen = new Set();
+  for (const f of detail.siblings || []) {
+    const quant = variantQuantOf(f.rfilename || "");
+    if (!quant || !f.size) continue;
+    if (seen.has(f.rfilename)) continue;
+    seen.add(f.rfilename);
+    out.push({
+      quant,
+      file: f.rfilename,
+      sizeGb: Math.round((f.size / 1024 ** 3) * 10) / 10,
+    });
+  }
+  return out.sort((a, b) => b.sizeGb - a.sizeGb).slice(0, 80);
+}
+
+/** 给 media.json 的每条记录补 / 刷新 variants，选中哪档就下哪档 */
+async function attachVariants(list) {
+  let updated = 0;
+  for (const m of list) {
+    if (!m.repo) continue;
+    const detail = await getJson(`https://huggingface.co/api/models/${m.repo}?blobs=true`);
+    if (!detail) continue;
+    const variants = variantsOf(detail);
+    if (!variants.length) continue;
+    m.variants = variants;
+    updated += 1;
+    await sleep(150);
+  }
+  console.log(`已更新 ${updated} 条画图 / 视频条目的量化文件清单`);
+}
+
 function paramsOf(repo) {
   const active = repo.match(/A(\d+(?:\.\d+)?)B/i);
   const t = repo.match(/(\d+(?:\.\d+)?)T(?![a-zA-Z])/i);
@@ -599,6 +653,8 @@ async function updateMediaFile() {
   });
   // 自动条目补一段限长介绍；人工 / 官方文案不动
   await enrichDescriptions(merged, "media");
+  // 每个量化档对应的主体文件与体积，客户端据此一一对应下载
+  await attachVariants(merged);
   const next = {
     ...media,
     updated: new Date().toISOString().slice(0, 10),
@@ -629,6 +685,7 @@ async function backfillDescriptions() {
   const media = JSON.parse(await readFile(MEDIA_FILE, "utf8"));
   const all = [...(media.image || []), ...(media.video || [])];
   await enrichDescriptions(all, "media");
+  await attachVariants(all);
 
   if (DRY) {
     console.log("[dry-run] 只补介绍，未写入文件");
