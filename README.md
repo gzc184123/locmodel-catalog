@@ -2,8 +2,10 @@
 
 Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推荐目录）填下面任一地址即可热更新推荐，不用重新发版：
 
+- GitHub raw（最稳，内容即时）：`https://raw.githubusercontent.com/gzc184123/locmodel-catalog/main/catalog.json`
 - jsDelivr：`https://cdn.jsdelivr.net/gh/gzc184123/locmodel-catalog@main/catalog.json`
-- GitHub raw：`https://raw.githubusercontent.com/gzc184123/locmodel-catalog/main/catalog.json`
+
+> jsDelivr 对 `@main` 的解析偶尔会落后好几个提交（purge 后仍可能命中旧快照），需要立刻生效时用 raw；jsDelivr 只作为国内访问的备用线路。
 
 ## 文件
 
