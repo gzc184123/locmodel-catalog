@@ -41,6 +41,8 @@ const UNCENSORED_MIN_DOWNLOADS = 500;
 const UNCENSORED_MIN_LIKES = 10;
 /** 无审查 / 去审查微调的关键词 */
 const UNCENSORED_RE = /uncensored|abliterated|unfiltered|nsfw|de[-_]?censor|jailbreak/i;
+/** 外部推荐列表（LM Studio / Ollama）各自最多收多少条 */
+const EXTERNAL_CAP = { lmstudio: 12, ollama: 12 };
 /** 推荐量化档位优先级：优先 4 bit 附近，其次低比特，最后高比特 */
 const QUANT_PREF = [
   "UD-Q4_K_XL",
@@ -238,6 +240,88 @@ function daysAgo(iso) {
   return (Date.now() - Date.parse(iso)) / 86400000;
 }
 
+async function fetchText(url, retries = 2) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url, { headers: UA });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.text();
+    } catch (err) {
+      if (i === retries - 1) {
+        console.warn(`  跳过 ${url}: ${err.message}`);
+        return "";
+      }
+      await sleep(1200 * (i + 1));
+    }
+  }
+  return "";
+}
+
+/** Ollama 模型库按热度排序，取前 N 个 slug 去 HF 找对应 GGUF 仓库 */
+async function ollamaCandidates(limit = 24) {
+  const html = await fetchText("https://ollama.com/library");
+  if (!html) return [];
+  const slugs = [
+    ...new Set(
+      [...html.matchAll(/href="\/library\/([a-z0-9][a-z0-9._-]*)"/g)].map((m) => m[1])
+    ),
+  ].slice(0, limit);
+  console.log(`Ollama 推荐：${slugs.length} 个模型`);
+  const out = [];
+  for (const slug of slugs) {
+    const repo = await hfRepoForName(slug);
+    if (repo) out.push({ ...repo, _source: "ollama", _tag: "Ollama" });
+    await sleep(200);
+  }
+  return out;
+}
+
+/** LM Studio 自有的 lmstudio-community 仓库，按下载量就是它的推荐顺序 */
+async function lmStudioCandidates(limit = 24) {
+  const list = await getJson(
+    "https://huggingface.co/api/models?author=lmstudio-community&sort=downloads&direction=-1&limit=60"
+  );
+  if (!Array.isArray(list)) return [];
+  const out = [];
+  const seen = new Set();
+  for (const m of list) {
+    const name = m.id.split("/")[1] || "";
+    if (!/gguf/i.test(name)) continue;
+    if (m.pipeline_tag && !CHAT_PIPELINES.has(m.pipeline_tag)) continue;
+    const key = nameKey(name);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ ...m, _source: "lmstudio", _tag: "LM Studio" });
+    if (out.length >= limit) break;
+  }
+  console.log(`LM Studio 推荐：${out.length} 个模型`);
+  return out;
+}
+
+/** 按名字去 HuggingFace 找最可信的 GGUF 仓库 */
+async function hfRepoForName(name) {
+  const key = nameKey(name);
+  if (key.length < 4) return null;
+  const list = await getJson(
+    `https://huggingface.co/api/models?search=${encodeURIComponent(name + " GGUF")}` +
+      `&filter=gguf&sort=downloads&direction=-1&limit=20`
+  );
+  if (!Array.isArray(list)) return null;
+  const matches = list.filter((m) => {
+    const repo = m.id.split("/")[1] || "";
+    if (repo.includes("_")) return false;
+    return nameKey(repo).includes(key);
+  });
+  if (!matches.length) return null;
+  // 白名单发布者优先，其次下载量高的（更可能是官方原版而不是同名微调）
+  matches.sort((a, b) => {
+    const ra = AUTHOR_RANK.get(a.id.split("/")[0]) ?? 99;
+    const rb = AUTHOR_RANK.get(b.id.split("/")[0]) ?? 99;
+    return ra - rb || (b.downloads || 0) - (a.downloads || 0);
+  });
+  return matches[0];
+}
+
 async function main() {
   const catalog = JSON.parse(await readFile(CATALOG, "utf8"));
   const items = catalog.items || [];
@@ -319,26 +403,62 @@ async function main() {
     await sleep(300);
   }
 
+  // 外部推荐：LM Studio 官方仓库 + Ollama 模型库，映射到可下载的 HF GGUF
+  const externalAdded = [];
+  const externalTargets = [...(await lmStudioCandidates(16)), ...(await ollamaCandidates(24))];
+  const collides = (fp) =>
+    [...addedNames].some((k) => k && (k === fp || k.startsWith(fp) || fp.startsWith(k)));
+  for (const m of externalTargets) {
+    const src = m._source;
+    if (externalAdded.filter((x) => x.source === src).length >= EXTERNAL_CAP[src]) continue;
+    if (known.has(m.id.toLowerCase())) continue;
+    const detail = await getJson(`https://huggingface.co/api/models/${m.id}?blobs=true`);
+    if (!detail) continue;
+    if (detail.pipeline_tag && !CHAT_PIPELINES.has(detail.pipeline_tag)) continue;
+    const item = toItem(m.id.split("/")[0], { ...detail, downloads: m.downloads, likes: m.likes });
+    if (!item) continue;
+    if (item.estTokS < MIN_TOK_S) {
+      console.log(`  - 跳过 [${m._tag}] ${item.name}（预计 ${item.estTokS} tok/s）`);
+      continue;
+    }
+    const fp = nameKey(item.name);
+    if (addedIds.has(item.id) || collides(fp) || items.some((x) => x.id === item.id)) continue;
+    item.source = src;
+    item.tag = m._tag;
+    addedIds.add(item.id);
+    addedNames.add(fp);
+    externalAdded.push(item);
+    console.log(`  + [${m._tag}] ${item.name}（${item.repo}, ${item.sizeGb} GB）`);
+    await sleep(250);
+  }
+
   const added = [...addedRegular, ...addedUncensored];
 
-  // 保留人工 / 官方条目在前；自动条目分普通 / 无审查两份配额，各自按更新时间倒序
-  const manual = items.filter((m) => m.source !== "auto");
+  // 保留人工 / 官方条目在前；自动条目分普通 / 无审查 / 外部推荐三组，各自按更新时间倒序
+  const managed = ["auto", "lmstudio", "ollama"];
+  const manual = items.filter((m) => !managed.includes(m.source));
   const allPrevAuto = items.filter((m) => m.source === "auto");
+  const feasible = (m) =>
+    m.sizeGb > 0 &&
+    m.sizeGb <= MAX_SIZE_GB &&
+    estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) >= MIN_TOK_S;
+  const withSpeed = (m) => ({
+    ...m,
+    estTokS: Math.round(estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) * 10) / 10,
+  });
   // 旧条目也按同一台机器复查，跑不动或预计低于 10 tok/s 的直接淘汰
-  const prevAuto = allPrevAuto
-    .filter(
-      (m) =>
-        m.sizeGb > 0 &&
-        m.sizeGb <= MAX_SIZE_GB &&
-        estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) >= MIN_TOK_S
-    )
-    .map((m) => ({
-      ...m,
-      estTokS: Math.round(estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) * 10) / 10,
-    }));
-  const dropped = allPrevAuto.length - prevAuto.length;
+  const prevAuto = allPrevAuto.filter(feasible).map(withSpeed);
+  const prevExternal = Object.fromEntries(
+    Object.keys(EXTERNAL_CAP).map((src) => [
+      src,
+      items.filter((m) => m.source === src && feasible(m)).map(withSpeed),
+    ])
+  );
+  const dropped =
+    items.filter((m) => managed.includes(m.source)).length -
+    (prevAuto.length + Object.values(prevExternal).reduce((n, list) => n + list.length, 0));
   if (dropped > 0) console.log(`淘汰 ${dropped} 条跑不动的旧条目`);
-  if (!added.length && !dropped) {
+  if (!added.length && !externalAdded.length && !dropped) {
     console.log("没有新增模型，清单保持不变");
     return;
   }
@@ -349,24 +469,31 @@ async function main() {
   const uncensored = [...addedUncensored, ...prevAuto.filter((m) => m.uncensored)]
     .sort(byNewest)
     .slice(0, UNCENSORED_LIMIT);
+  const external = Object.entries(EXTERNAL_CAP).flatMap(([src, cap]) =>
+    [...externalAdded.filter((m) => m.source === src), ...prevExternal[src]]
+      .sort(byNewest)
+      .slice(0, cap)
+  );
 
   const next = {
     ...catalog,
     updated: new Date().toISOString().slice(0, 10),
-    items: [...manual, ...regular, ...uncensored],
+    items: [...manual, ...regular, ...uncensored, ...external],
   };
 
   if (DRY) {
     console.log(
-      `[dry-run] 将新增 ${added.length} 条（无审查 ${addedUncensored.length} 条），共 ${next.items.length} 条`
+      `[dry-run] 将新增 ${added.length} 条（无审查 ${addedUncensored.length} 条）` +
+        ` + 外部推荐 ${externalAdded.length} 条，共 ${next.items.length} 条`
     );
-    console.log(JSON.stringify(added[0], null, 2));
+    console.log(JSON.stringify(added[0] ?? externalAdded[0], null, 2));
     return;
   }
 
   await writeFile(CATALOG, `${JSON.stringify(next, null, 2)}\n`, "utf8");
   console.log(
-    `已写入 catalog.json：新增 ${added.length} 条（无审查 ${addedUncensored.length} 条），共 ${next.items.length} 条`
+    `已写入 catalog.json：新增 ${added.length} 条（无审查 ${addedUncensored.length} 条）` +
+      ` + 外部推荐 ${externalAdded.length} 条，共 ${next.items.length} 条`
   );
 }
 
