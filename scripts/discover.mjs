@@ -61,9 +61,16 @@ const QUANT_PREF = [
   "MXFP4",
 ];
 /** 超过这个体积的模型对本地客户端没有意义，不收录 */
-const MAX_SIZE_GB = 120;
+const MAX_SIZE_GB = 100;
+/** 目标机器：16G 显存 / 64G 内存，预计低于 10 tok/s 的模型不收录 */
+const TARGET_VRAM_GB = 16;
+const TARGET_RAM_GB = 64;
+const MIN_TOK_S = 10;
+// 与客户端 Models 页一致：显存留 8%，内存预留 4 GB
+const VRAM_BUDGET_GB = Math.max(0, TARGET_VRAM_GB * 0.92 - 1);
+const RAM_BUDGET_GB = Math.max(0, TARGET_RAM_GB - Math.min(4, TARGET_RAM_GB / 3));
 /** 明显不是对话模型的仓库名，直接跳过 */
-const SKIP_NAME = /embed|rerank|classif|whisper|tts|audio|ocr|sentence|reward|guard|diffus|flux|wan2|ltx|image|video|sd-|stable-diffusion|minimax-h3|for[-_\s]?testing|tinyllama-for-testing/i;
+const SKIP_NAME = /embed|rerank|classif|whisper|tts|audio|ocr|sentence|reward|guard|diffus|flux|wan2|ltx|image|video|sd-|stable-diffusion|minimax-h3|vllm[-_]|for[-_\s]?testing|tinyllama-for-testing/i;
 
 /** 归一化名称，用来判断「同一个模型的不同发布者仓库」 */
 function nameKey(text) {
@@ -185,6 +192,8 @@ function toItem(author, detail) {
     source: "auto",
     lastModified: detail.lastModified || "",
     downloads: detail.downloads || 0,
+    // 16G 显存 / 64G 内存下的粗略速度，低于 10 tok/s 的不收录
+    estTokS: Math.round(estimateSpeed(sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, params) * 10) / 10,
   };
 }
 
@@ -194,6 +203,32 @@ function isUncensored(repo, tags) {
     UNCENSORED_RE.test(repo) ||
     (tags || []).some((t) => UNCENSORED_RE.test(String(t)))
   );
+}
+
+/**
+ * 与客户端模型页同一套粗估：权重按显存 → 内存 → 硬盘依次放，
+ * 显存 800 GB/s、内存 46 GB/s、硬盘 2 GB/s；MoE 只算激活参数。
+ */
+function estimateSpeed(sizeGb, vramGb, ramGb, params) {
+  const gpuGb = Math.min(sizeGb, Math.max(0, vramGb));
+  const ramUsed = Math.min(sizeGb - gpuGb, Math.max(0, ramGb));
+  const diskGb = Math.max(0, sizeGb - gpuGb - ramUsed);
+  const secs = gpuGb / 800 + ramUsed / 46 + diskGb / 2;
+  let tokS = secs > 0 ? 0.72 / secs : 0;
+
+  const moe = String(params || "").match(/([\d.]+)\s*B\s*A([\d.]+)\s*B/i);
+  if (moe) {
+    const total = Number(moe[1]);
+    const active = Number(moe[2]);
+    // 整包要能装进显存 + 内存，专家才可能常驻；否则还是要从硬盘读
+    if (total > 0 && active > 0 && active < total && sizeGb <= vramGb + ramGb) {
+      const activeGb = sizeGb * (active / total);
+      if (activeGb <= Math.max(0, vramGb)) {
+        tokS = Math.max(tokS, (0.72 / (activeGb / 800)) * 0.7);
+      }
+    }
+  }
+  return tokS;
 }
 
 function daysAgo(iso) {
@@ -265,6 +300,10 @@ async function main() {
     if (!detail) continue;
     const item = toItem(m.id.split("/")[0], { ...detail, downloads: m.downloads, likes: m.likes });
     if (!item) continue;
+    if (item.estTokS < MIN_TOK_S) {
+      console.log(`  - 跳过 ${item.name}（预计 ${item.estTokS} tok/s，低于 ${MIN_TOK_S}）`);
+      continue;
+    }
     const bucket = item.uncensored ? addedUncensored : addedRegular;
     if (bucket.length >= (item.uncensored ? UNCENSORED_LIMIT : AUTO_LIMIT)) continue;
     const nameFp = nameKey(item.name);
@@ -279,14 +318,28 @@ async function main() {
   }
 
   const added = [...addedRegular, ...addedUncensored];
-  if (!added.length) {
-    console.log("没有新增模型，清单保持不变");
-    return;
-  }
 
   // 保留人工 / 官方条目在前；自动条目分普通 / 无审查两份配额，各自按更新时间倒序
   const manual = items.filter((m) => m.source !== "auto");
-  const prevAuto = items.filter((m) => m.source === "auto");
+  const allPrevAuto = items.filter((m) => m.source === "auto");
+  // 旧条目也按同一台机器复查，跑不动或预计低于 10 tok/s 的直接淘汰
+  const prevAuto = allPrevAuto
+    .filter(
+      (m) =>
+        m.sizeGb > 0 &&
+        m.sizeGb <= MAX_SIZE_GB &&
+        estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) >= MIN_TOK_S
+    )
+    .map((m) => ({
+      ...m,
+      estTokS: Math.round(estimateSpeed(m.sizeGb, VRAM_BUDGET_GB, RAM_BUDGET_GB, m.params) * 10) / 10,
+    }));
+  const dropped = allPrevAuto.length - prevAuto.length;
+  if (dropped > 0) console.log(`淘汰 ${dropped} 条跑不动的旧条目`);
+  if (!added.length && !dropped) {
+    console.log("没有新增模型，清单保持不变");
+    return;
+  }
   const byNewest = (a, b) => String(b.lastModified).localeCompare(String(a.lastModified));
   const regular = [...addedRegular, ...prevAuto.filter((m) => !m.uncensored)]
     .sort(byNewest)

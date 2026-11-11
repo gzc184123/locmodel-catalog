@@ -418,165 +418,6 @@
       "recommendedQuant": "Q4_K_M"
     },
     {
-      "id": "vllm-d3",
-      "name": "vllm d3",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 18.1,
-      "minVramGb": 22,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-11-08T21:16:47.000Z",
-      "downloads": 25633
-    },
-    {
-      "id": "vllm-d3-nano",
-      "name": "vllm d3 nano",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q8_0",
-      "sizeGb": 2.4,
-      "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-nano-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q8_0",
-      "source": "auto",
-      "lastModified": "2026-11-08T21:11:32.000Z",
-      "downloads": 14278
-    },
-    {
-      "id": "vllm-d3-lite",
-      "name": "vllm d3 lite",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q8_0",
-      "sizeGb": 1,
-      "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-lite-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q8_0",
-      "source": "auto",
-      "lastModified": "2026-11-08T21:10:44.000Z",
-      "downloads": 16475
-    },
-    {
-      "id": "vllm-d3-flash",
-      "name": "vllm d3 flash",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 6.1,
-      "minVramGb": 7,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-flash-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-11-08T21:10:09.000Z",
-      "downloads": 21580
-    },
-    {
-      "id": "vllm-d3-edge",
-      "name": "vllm d3 edge",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q8_0",
-      "sizeGb": 0.8,
-      "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-edge-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q8_0",
-      "source": "auto",
-      "lastModified": "2026-11-08T21:07:59.000Z",
-      "downloads": 4855
-    },
-    {
-      "id": "vllm-d3-mini",
-      "name": "vllm d3 mini",
-      "org": "ggml-org · HuggingFace",
-      "family": "vllm-d",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 3.5,
-      "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/vllm-d3-mini-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-11-02T07:53:16.000Z",
-      "downloads": 18804
-    },
-    {
       "id": "mimo-v2-6-flash-rl",
       "name": "MiMo V2.6 Flash RL",
       "org": "ggml-org · HuggingFace",
@@ -603,7 +444,8 @@
       "recommendedQuant": "Q4_0",
       "source": "auto",
       "lastModified": "2026-11-01T08:41:49.000Z",
-      "downloads": 12203
+      "downloads": 12203,
+      "estTokS": 480
     },
     {
       "id": "mimo-v2-6-flash-mopd",
@@ -633,34 +475,8 @@
       "recommendedQuant": "Q4_0",
       "source": "auto",
       "lastModified": "2026-11-01T07:51:11.000Z",
-      "downloads": 6521
-    },
-    {
-      "id": "clef",
-      "name": "Clef",
-      "org": "ggml-org · HuggingFace",
-      "family": "clef",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 18.2,
-      "minVramGb": 22,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/Clef-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-11-01T03:49:34.000Z",
-      "downloads": 22095
+      "downloads": 6521,
+      "estTokS": 480
     },
     {
       "id": "clef-flash",
@@ -687,7 +503,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-01T03:43:36.000Z",
-      "downloads": 53306
+      "downloads": 53306,
+      "estTokS": 91.4
     },
     {
       "id": "spark-x2-6-1-7b",
@@ -731,7 +548,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-31T17:43:57.000Z",
-      "downloads": 3555
+      "downloads": 3555,
+      "estTokS": 576
     },
     {
       "id": "mellum2-1-12b-a2-5b-thinking-mtp",
@@ -776,7 +594,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-30T20:42:00.000Z",
-      "downloads": 4462
+      "downloads": 4462,
+      "estTokS": 230.4
     },
     {
       "id": "lfm3-1-7b",
@@ -801,7 +620,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-27T17:03:16.000Z",
-      "downloads": 7328
+      "downloads": 7328,
+      "estTokS": 576
     },
     {
       "id": "lfm3-vl-2b",
@@ -827,7 +647,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-27T17:02:49.000Z",
-      "downloads": 13768
+      "downloads": 13768,
+      "estTokS": 576
     },
     {
       "id": "lbs-27b",
@@ -875,55 +696,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-27T13:38:18.000Z",
-      "downloads": 3980
-    },
-    {
-      "id": "ling-3-0-flash-sante",
-      "name": "Ling 3.0 flash Sante",
-      "org": "bartowski · HuggingFace",
-      "family": "ling",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 74.9,
-      "minVramGb": 90,
-      "desc": "bartowski 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话"
-      ],
-      "repo": "bartowski/Ling-3.0-flash-Sante-GGUF",
-      "vision": false,
-      "quants": [
-        "Q4_K_M",
-        "Q4_K_S",
-        "Q4_0",
-        "Q4_1",
-        "Q3_K_M",
-        "Q5_K_M",
-        "Q6_K",
-        "Q8_0",
-        "IQ1_M",
-        "IQ1_S",
-        "IQ2_M",
-        "IQ2_S",
-        "IQ2_XS",
-        "IQ2_XXS",
-        "IQ3_M",
-        "IQ3_XS",
-        "IQ3_XXS",
-        "IQ4_NL",
-        "IQ4_XS",
-        "Q2_K",
-        "Q3_K_L",
-        "Q3_K_S",
-        "Q4_K_L",
-        "Q5_K_S",
-        "Q6_K_S",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-10-25T05:34:23.000Z",
-      "downloads": 4020
+      "downloads": 3980,
+      "estTokS": 10.8
     },
     {
       "id": "nvidia-nemotron-3-5-bolt-e4b",
@@ -956,7 +730,8 @@
       "recommendedQuant": "UD-Q4_K_XL",
       "source": "auto",
       "lastModified": "2026-10-24T04:00:15.000Z",
-      "downloads": 536177
+      "downloads": 536177,
+      "estTokS": 122.6
     },
     {
       "id": "qwen3-coder-30b-a3b-instruct",
@@ -983,72 +758,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-22T12:17:35.000Z",
-      "downloads": 61790
-    },
-    {
-      "id": "flint",
-      "name": "flint",
-      "org": "unsloth · HuggingFace",
-      "family": "flint",
-      "params": "",
-      "quant": "UD-Q4_K_XL",
-      "sizeGb": 23.3,
-      "minVramGb": 28,
-      "desc": "unsloth 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话"
-      ],
-      "repo": "unsloth/flint-GGUF",
-      "vision": false,
-      "quants": [
-        "UD-Q4_K_XL",
-        "UD-Q3_K_XL",
-        "UD-IQ3_XXS",
-        "UD-IQ1_M",
-        "Q8_0",
-        "BF16",
-        "UD-IQ2_XXS",
-        "UD-Q2_K_XL",
-        "UD-Q5_K_XL",
-        "UD-Q6_K_XL"
-      ],
-      "recommendedQuant": "UD-Q4_K_XL",
-      "source": "auto",
-      "lastModified": "2026-10-21T23:54:26.000Z",
-      "downloads": 318959
-    },
-    {
-      "id": "ornith-1-5-122b",
-      "name": "Ornith 1.5 122B",
-      "org": "unsloth · HuggingFace",
-      "family": "ornith",
-      "params": "122B",
-      "quant": "UD-Q4_K_XL",
-      "sizeGb": 74.2,
-      "minVramGb": 89,
-      "desc": "unsloth 的 122B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "unsloth/Ornith-1.5-122B-GGUF",
-      "vision": true,
-      "quants": [
-        "UD-Q4_K_XL",
-        "UD-Q3_K_XL",
-        "UD-IQ3_XXS",
-        "UD-IQ1_M",
-        "Q8_0",
-        "BF16",
-        "UD-IQ2_XXS",
-        "UD-Q2_K_XL",
-        "UD-Q5_K_XL",
-        "UD-Q6_K_XL"
-      ],
-      "recommendedQuant": "UD-Q4_K_XL",
-      "source": "auto",
-      "lastModified": "2026-10-21T20:05:20.000Z",
-      "downloads": 651314
+      "downloads": 61790,
+      "estTokS": 240
     },
     {
       "id": "spark-x2-6-4b",
@@ -1092,7 +803,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-20T21:29:26.000Z",
-      "downloads": 26741
+      "downloads": 26741,
+      "estTokS": 240
     },
     {
       "id": "lfm2-5-24b-a2b",
@@ -1124,7 +836,8 @@
       "recommendedQuant": "UD-Q4_K_XL",
       "source": "auto",
       "lastModified": "2026-10-20T06:55:37.000Z",
-      "downloads": 464728
+      "downloads": 464728,
+      "estTokS": 348.1
     },
     {
       "id": "smollm2-135m",
@@ -1150,7 +863,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-19T15:36:00.000Z",
-      "downloads": 3427
+      "downloads": 3427,
+      "estTokS": 5760
     },
     {
       "id": "qwen3-5-0-8b",
@@ -1177,7 +891,8 @@
       "recommendedQuant": "Q4_0",
       "source": "auto",
       "lastModified": "2026-10-19T15:35:39.000Z",
-      "downloads": 56586
+      "downloads": 56586,
+      "estTokS": 1152
     },
     {
       "id": "qwen3-8b",
@@ -1202,7 +917,8 @@
       "recommendedQuant": "Q8_0",
       "source": "auto",
       "lastModified": "2026-10-19T15:35:31.000Z",
-      "downloads": 3698
+      "downloads": 3698,
+      "estTokS": 55.9
     },
     {
       "id": "qwen3-0-6b",
@@ -1229,34 +945,8 @@
       "recommendedQuant": "Q4_0",
       "source": "auto",
       "lastModified": "2026-10-19T15:35:25.000Z",
-      "downloads": 60376
-    },
-    {
-      "id": "openjev",
-      "name": "OpenJev",
-      "org": "ggml-org · HuggingFace",
-      "family": "openjev",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 18.1,
-      "minVramGb": 22,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话",
-        "多模态"
-      ],
-      "repo": "ggml-org/OpenJev-GGUF",
-      "vision": true,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-10-19T15:35:18.000Z",
-      "downloads": 13956
+      "downloads": 60376,
+      "estTokS": 1440
     },
     {
       "id": "nvidia-nemotron-3-nano-30b-a3b",
@@ -1282,33 +972,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-19T14:16:27.000Z",
-      "downloads": 8907
-    },
-    {
-      "id": "laguna-xs-2-1",
-      "name": "Laguna XS 2.1",
-      "org": "ggml-org · HuggingFace",
-      "family": "laguna-xs",
-      "params": "",
-      "quant": "Q4_K_M",
-      "sizeGb": 18.2,
-      "minVramGb": 22,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
-      "tags": [
-        "对话"
-      ],
-      "repo": "ggml-org/Laguna-XS-2.1-GGUF",
-      "vision": false,
-      "uncensored": false,
-      "quants": [
-        "Q4_K_M",
-        "Q8_0",
-        "BF16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "auto",
-      "lastModified": "2026-10-19T14:14:50.000Z",
-      "downloads": 3820
+      "downloads": 8907,
+      "estTokS": 192.9
     },
     {
       "id": "minicpm-v-4-7-35b-a3b",
@@ -1356,7 +1021,327 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-10-18T07:43:35.000Z",
-      "downloads": 5675
+      "downloads": 5675,
+      "estTokS": 226.2
+    },
+    {
+      "id": "nvidia-nemotron-3-5-bolt-74b-a9b",
+      "name": "NVIDIA Nemotron 3.5 Bolt 74B A9B",
+      "org": "unsloth · HuggingFace",
+      "family": "nvidia-nemotron",
+      "params": "74B A9B",
+      "quant": "UD-Q4_K_XL",
+      "sizeGb": 46.8,
+      "minVramGb": 56,
+      "desc": "unsloth 的 74B A9B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话",
+        "多模态"
+      ],
+      "repo": "unsloth/NVIDIA-Nemotron-3.5-Bolt-74B-A9B-GGUF",
+      "vision": true,
+      "uncensored": false,
+      "quants": [
+        "UD-Q4_K_XL",
+        "UD-Q3_K_XL",
+        "UD-IQ3_XXS",
+        "UD-IQ2_M",
+        "UD-IQ1_M",
+        "Q8_0",
+        "BF16",
+        "IQ2_XXS",
+        "UD-IQ1_S",
+        "UD-IQ2_XXS",
+        "UD-Q2_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL",
+      "source": "auto",
+      "lastModified": "2026-10-16T13:25:22.000Z",
+      "downloads": 81085,
+      "estTokS": 70.8
+    },
+    {
+      "id": "userrepgen-4b",
+      "name": "UserRepGen 4B",
+      "org": "bartowski · HuggingFace",
+      "family": "userrepgen",
+      "params": "4B",
+      "quant": "Q4_K_M",
+      "sizeGb": 2.5,
+      "minVramGb": 4,
+      "desc": "bartowski 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话"
+      ],
+      "repo": "bartowski/UserRepGen-4B-GGUF",
+      "vision": false,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "Q6_K_S",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-14T23:56:12.000Z",
+      "downloads": 3330,
+      "estTokS": 230.4
+    },
+    {
+      "id": "aescode-8b",
+      "name": "AesCode 8B",
+      "org": "bartowski · HuggingFace",
+      "family": "aescode",
+      "params": "8B",
+      "quant": "Q4_K_M",
+      "sizeGb": 4.9,
+      "minVramGb": 6,
+      "desc": "bartowski 的 8B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话",
+        "多模态",
+        "代码"
+      ],
+      "repo": "bartowski/AesCode-8B-GGUF",
+      "vision": true,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "Q6_K_S",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-11T07:45:01.000Z",
+      "downloads": 4618,
+      "estTokS": 117.6
+    },
+    {
+      "id": "mellum2-1-12b-a2-5b-thinking",
+      "name": "Mellum2.1 12B A2.5B Thinking",
+      "org": "bartowski · HuggingFace",
+      "family": "mellum",
+      "params": "12B A2.5B",
+      "quant": "Q4_K_M",
+      "sizeGb": 8.2,
+      "minVramGb": 10,
+      "desc": "bartowski 的 12B A2.5B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话",
+        "推理"
+      ],
+      "repo": "bartowski/Mellum2.1-12B-A2.5B-Thinking-GGUF",
+      "vision": false,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "Q6_K_S",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-08T15:15:18.000Z",
+      "downloads": 11850,
+      "estTokS": 236
+    },
+    {
+      "id": "k2-horizon-mova-36b-a4b",
+      "name": "K2 Horizon MoVA 36B A4B",
+      "org": "bartowski · HuggingFace",
+      "family": "k",
+      "params": "36B A4B",
+      "quant": "Q4_K_M",
+      "sizeGb": 21.1,
+      "minVramGb": 25,
+      "desc": "bartowski 的 36B A4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话"
+      ],
+      "repo": "bartowski/K2-Horizon-MoVA-36B-A4B-GGUF",
+      "vision": false,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ2_S",
+        "IQ2_XS",
+        "IQ2_XXS",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-07T18:12:59.000Z",
+      "downloads": 7021,
+      "estTokS": 172
+    },
+    {
+      "id": "k2-horizon-7b",
+      "name": "K2 Horizon 7B",
+      "org": "bartowski · HuggingFace",
+      "family": "k",
+      "params": "7B",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.4,
+      "minVramGb": 6,
+      "desc": "bartowski 的 7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话"
+      ],
+      "repo": "bartowski/K2-Horizon-7B-GGUF",
+      "vision": false,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "Q6_K_S",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-07T11:42:11.000Z",
+      "downloads": 4959,
+      "estTokS": 106.7
+    },
+    {
+      "id": "k2-horizon-3-7b",
+      "name": "K2 Horizon 3.7B",
+      "org": "bartowski · HuggingFace",
+      "family": "k",
+      "params": "3.7B",
+      "quant": "Q4_K_M",
+      "sizeGb": 3,
+      "minVramGb": 4,
+      "desc": "bartowski 的 3.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "tags": [
+        "对话"
+      ],
+      "repo": "bartowski/K2-Horizon-3.7B-GGUF",
+      "vision": false,
+      "uncensored": false,
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "IQ2_M",
+        "IQ3_M",
+        "IQ3_XS",
+        "IQ3_XXS",
+        "IQ4_NL",
+        "IQ4_XS",
+        "Q2_K",
+        "Q3_K_L",
+        "Q3_K_S",
+        "Q4_K_L",
+        "Q5_K_S",
+        "Q6_K_L",
+        "Q6_K_S",
+        "BF16"
+      ],
+      "recommendedQuant": "Q4_K_M",
+      "source": "auto",
+      "lastModified": "2026-10-07T11:07:39.000Z",
+      "downloads": 4926,
+      "estTokS": 192
     },
     {
       "id": "gemma-4-e4b-it-abliterated-uncensored-philadelphia-class-i1",
@@ -1403,7 +1388,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-11T01:07:29.000Z",
-      "downloads": 4689
+      "downloads": 4689,
+      "estTokS": 117.6
     },
     {
       "id": "arete-27b-unlocked-uncensored-heretic-i1",
@@ -1449,7 +1435,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-10T20:39:12.000Z",
-      "downloads": 813
+      "downloads": 813,
+      "estTokS": 13.4
     },
     {
       "id": "qwen3-8-4b-distill-ara-abliterated-i1",
@@ -1496,7 +1483,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-10T13:48:09.000Z",
-      "downloads": 669
+      "downloads": 669,
+      "estTokS": 230.4
     },
     {
       "id": "arete-27b-uncensored-v2-i1",
@@ -1533,7 +1521,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-10T06:00:08.000Z",
-      "downloads": 700
+      "downloads": 700,
+      "estTokS": 12
     },
     {
       "id": "lfm3-omni-2b-abliterated-heretic-v2-i1",
@@ -1580,7 +1569,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-10T01:44:03.000Z",
-      "downloads": 1093
+      "downloads": 1093,
+      "estTokS": 576
     },
     {
       "id": "lfm3-omni-2b-abliterated-i1",
@@ -1628,7 +1618,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T23:30:56.000Z",
-      "downloads": 1094
+      "downloads": 1094,
+      "estTokS": 576
     },
     {
       "id": "lfm3-vl-2b-uncensored-i1",
@@ -1675,7 +1666,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T22:24:34.000Z",
-      "downloads": 847
+      "downloads": 847,
+      "estTokS": 576
     },
     {
       "id": "lfm3-1-7b-ara-abliterated-i1",
@@ -1722,7 +1714,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T18:31:34.000Z",
-      "downloads": 936
+      "downloads": 936,
+      "estTokS": 576
     },
     {
       "id": "s5-nano-uncensored-i1",
@@ -1760,7 +1753,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T17:33:05.000Z",
-      "downloads": 724
+      "downloads": 724,
+      "estTokS": 221.5
     },
     {
       "id": "lfm3-1-7b-heretic-abliterated-i1",
@@ -1808,7 +1802,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T16:20:48.000Z",
-      "downloads": 1031
+      "downloads": 1031,
+      "estTokS": 576
     },
     {
       "id": "lfm3-vl-2b-surgical-abliterated-i1",
@@ -1855,7 +1850,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T14:00:06.000Z",
-      "downloads": 946
+      "downloads": 946,
+      "estTokS": 576
     },
     {
       "id": "deepseek-v4-pro-qwen3-5-9b-uncensored-heretic-i1",
@@ -1903,7 +1899,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T13:21:31.000Z",
-      "downloads": 290001
+      "downloads": 290001,
+      "estTokS": 110.8
     },
     {
       "id": "lfm3-1-7b-uncensored-i1",
@@ -1952,7 +1949,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T09:52:04.000Z",
-      "downloads": 927
+      "downloads": 927,
+      "estTokS": 576
     },
     {
       "id": "lfm3-1-7b-surgical-abliterated-i1",
@@ -1999,7 +1997,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-09T06:37:10.000Z",
-      "downloads": 913
+      "downloads": 913,
+      "estTokS": 576
     },
     {
       "id": "arete-27b-uncensored-i1",
@@ -2036,7 +2035,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-08T21:14:33.000Z",
-      "downloads": 1474
+      "downloads": 1474,
+      "estTokS": 12
     },
     {
       "id": "qwen3-8-27b-uncensored-v3-i1",
@@ -2082,7 +2082,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-08T12:00:08.000Z",
-      "downloads": 1634
+      "downloads": 1634,
+      "estTokS": 13.4
     },
     {
       "id": "deepseek-v4-pro-qwen3-5-4b-uncensored-heretic-i1",
@@ -2130,7 +2131,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-08T09:14:36.000Z",
-      "downloads": 7256
+      "downloads": 7256,
+      "estTokS": 230.4
     },
     {
       "id": "frost-cyber-mini-uncensored-v1-1-i1",
@@ -2177,7 +2179,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-08T04:13:55.000Z",
-      "downloads": 967
+      "downloads": 967,
+      "estTokS": 240
     },
     {
       "id": "qwen-3-8-27b-uncensored-i1",
@@ -2215,7 +2218,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-07T18:49:38.000Z",
-      "downloads": 1446
+      "downloads": 1446,
+      "estTokS": 12
     },
     {
       "id": "lfm2-5-24b-a2b-uncensored-fiction-nblora-merged2-i1",
@@ -2261,7 +2265,8 @@
       "recommendedQuant": "Q4_K_M",
       "source": "auto",
       "lastModified": "2026-11-07T00:00:05.000Z",
-      "downloads": 3728
+      "downloads": 3728,
+      "estTokS": 358.4
     }
   ]
 }
