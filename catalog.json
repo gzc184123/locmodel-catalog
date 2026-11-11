@@ -2478,60 +2478,6 @@
       "estTokS": 358.4
     },
     {
-      "id": "gpt-oss-20b",
-      "name": "gpt-oss 20B",
-      "org": "OpenAI · unsloth",
-      "release": "2025-08",
-      "family": "gpt-oss",
-      "params": "21B A3.6B",
-      "quant": "Q4_K_M",
-      "sizeGb": 11.6,
-      "minVramGb": 16,
-      "desc": "OpenAI 开源 MoE，16G 显存就能流畅跑。",
-      "tags": [
-        "对话",
-        "推理",
-        "代码"
-      ],
-      "repo": "unsloth/gpt-oss-20b-GGUF",
-      "quants": [
-        "Q4_K_M",
-        "F16"
-      ],
-      "recommendedQuant": "Q4_K_M",
-      "source": "lmstudio",
-      "tag": "LM Studio"
-    },
-    {
-      "id": "muse-glimmer-30b",
-      "name": "Muse Glimmer 30B",
-      "org": "Meta · unsloth",
-      "release": "2026-08",
-      "family": "muse",
-      "params": "30B",
-      "quant": "UD-Q2_K_XL",
-      "sizeGb": 11.5,
-      "minVramGb": 12,
-      "desc": "Meta 开源（Apache 2.0），擅长工具调用和本地智能体，能看图。",
-      "tags": [
-        "对话",
-        "代码",
-        "多模态"
-      ],
-      "repo": "unsloth/Muse-Glimmer-30B-GGUF",
-      "vision": true,
-      "quants": [
-        "UD-Q2_K_XL",
-        "UD-Q3_K_XL",
-        "UD-Q4_K_XL",
-        "UD-Q6_K_XL",
-        "UD-Q8_K_XL"
-      ],
-      "recommendedQuant": "UD-Q2_K_XL",
-      "source": "lmstudio",
-      "tag": "LM Studio"
-    },
-    {
       "id": "nvidia-nemotron-3-5-super-vl-120b-a12b",
       "name": "NVIDIA Nemotron 3.5 Super VL 120B A12B",
       "org": "unsloth · HuggingFace",

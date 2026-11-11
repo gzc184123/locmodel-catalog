@@ -497,10 +497,19 @@ async function main() {
       return tag && !m.tag ? { ...m, tag } : m;
     });
 
+  // 同一 id 只保留第一条（官方 / 人工优先），避免来源提升时出现重复卡片
+  const seenIds = new Set();
+  const finalItems = [
+    ...applyTag(manual),
+    ...applyTag(regular),
+    ...applyTag(uncensored),
+    ...applyTag(external),
+  ].filter((m) => (seenIds.has(m.id) ? false : (seenIds.add(m.id), true)));
+
   const next = {
     ...catalog,
     updated: new Date().toISOString().slice(0, 10),
-    items: [...applyTag(manual), ...applyTag(regular), ...applyTag(uncensored), ...applyTag(external)],
+    items: finalItems,
   };
 
   if (DRY) {
