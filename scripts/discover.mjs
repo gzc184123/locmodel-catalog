@@ -428,13 +428,24 @@ async function summarizeWithLLM(item, card, max, kind) {
 async function enrichDescriptions(list, kind) {
   const field = kind === "media" ? "note" : "desc";
   const max = kind === "media" ? MEDIA_NOTE_MAX : DESC_MAX;
+  const llmReady = Boolean(LLM_BASE && LLM_KEY && LLM_MODEL);
+  const managed = new Set(["auto", "lmstudio", "ollama"]);
+  // 先补新条目（还没有介绍），再回头处理旧的元数据兜底，避免新条目排不上队
+  const rank = (item) => {
+    if (!managed.has(item.source)) return 9;
+    if (!item.descSource || item.descSource === "template") return 0;
+    if (item.descSource === "meta") return 1;
+    return 2;
+  };
+  const ordered = [...list].sort((a, b) => rank(a) - rank(b));
   let used = 0;
-  for (const item of list) {
+  for (const item of ordered) {
     if (used >= ENRICH_LIMIT) break;
-    const managed = ["auto", "lmstudio", "ollama"].includes(item.source);
-    if (!managed || !item.repo) continue;
+    if (!managed.has(item.source) || !item.repo) continue;
     // AI 写过的除非显式刷新，不再重复花钱
     if (item.descSource === "ai" && !REFRESH_DESC) continue;
+    // 元数据兜底过的条目：没有 LLM 就不再重复拉模型卡
+    if (item.descSource === "meta" && !llmReady && !REFRESH_DESC) continue;
     const current = String(item[field] || "");
     const needs =
       REFRESH_DESC ||

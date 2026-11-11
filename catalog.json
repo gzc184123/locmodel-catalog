@@ -3025,7 +3025,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.2,
       "minVramGb": 4,
-      "desc": "bartowski 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "偏编程，文本对话模型；推荐 Q4_K_M（2.2 GB）。",
       "tags": [
         "对话",
         "代码"
@@ -3063,7 +3063,9 @@
       "lastModified": "2024-09-15T07:35:15.000Z",
       "downloads": 37691,
       "estTokS": 261.8,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     }
   ]
 }
