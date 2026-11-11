@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "updated": "2026-11-11",
+  "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单（对照用）。当前客户端的多组件下载走应用内 sd 预设，本文件暂不被程序读取。",
+  "image": [
+    {
+      "id": "z-image-turbo-q4_k",
+      "name": "Z-Image Turbo · Q4_K",
+      "kind": "image",
+      "sizeGb": 6.0,
+      "note": "官方默认画图模型，8 步出图，可配 Z-Image Edit 做参考图重绘",
+      "appPreset": "z-image-turbo-q4_k"
+    },
+    {
+      "id": "z-image-turbo-q8_0",
+      "name": "Z-Image Turbo · Q8_0",
+      "kind": "image",
+      "sizeGb": 10.1,
+      "note": "同模型高质量档，16 GB 显存可整块加载",
+      "appPreset": "z-image-turbo-q8_0"
+    },
+    {
+      "id": "qwen-image-2.1",
+      "name": "Qwen-Image 2.1",
+      "kind": "image",
+      "sizeGb": 13.7,
+      "note": "画面内中英文文字最准，适合海报 / 字幕",
+      "appPreset": "qwen-image-2.1-q4_k"
+    },
+    {
+      "id": "flux1-schnell",
+      "name": "FLUX.1 schnell",
+      "kind": "image",
+      "sizeGb": 7.0,
+      "note": "4 步出图，风格化强",
+      "appPreset": "flux1-schnell-q4"
+    },
+    {
+      "id": "flux2-klein-4b",
+      "name": "FLUX.2 klein 4B",
+      "kind": "image",
+      "sizeGb": 5.3,
+      "note": "小显存友好（8–12 GB）",
+      "appPreset": "flux2-klein-4b-q4"
+    }
+  ],
+  "video": [
+    {
+      "id": "wan2.1-t2v-1.3b",
+      "name": "Wan2.1 文生视频 1.3B",
+      "kind": "video",
+      "sizeGb": 8.5,
+      "note": "最轻量，8 GB 显存可出 480P 短视频",
+      "appPreset": "wan2.1-t2v-1.3b"
+    },
+    {
+      "id": "wan2.2-ti2v-5b",
+      "name": "Wan2.2 视频 5B",
+      "kind": "video",
+      "sizeGb": 10.9,
+      "note": "画质更好，支持文生视频与首帧图生视频",
+      "appPreset": "wan2.2-ti2v-5b-q4_k_m"
+    },
+    {
+      "id": "ltx-2.3-22b",
+      "name": "LTX-2.3 有声视频",
+      "kind": "video",
+      "sizeGb": 20.7,
+      "note": "画面与声音一起生成，720P，蒸馏 8 步",
+      "appPreset": "ltx-2.3-22b"
+    },
+    {
+      "id": "minimax-h3",
+      "name": "MiniMax-H3 有声视频",
+      "kind": "video",
+      "sizeGb": 33.0,
+      "note": "画面 + 立体声，建议 24 GB 显存 + 64 GB 内存",
+      "appPreset": "minimax-h3"
+    },
+    {
+      "id": "minimax-h3-ref2v",
+      "name": "MiniMax-H3 多图参考视频",
+      "kind": "video",
+      "sizeGb": 33.0,
+      "note": "上传 1–4 张参考图，视频里会出现它们；与 H3 共用文本编码器与 VAE",
+      "appPreset": "minimax-h3-ref2v"
+    }
+  ]
+}

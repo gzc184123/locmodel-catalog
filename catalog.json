@@ -1,20 +1,31 @@
 {
-  "version": 1,
+  "version": 2,
   "updated": "2026-11-11",
+  "note": "Local-Model 对话模型推荐目录：改这里即可热更新客户端推荐，无需发版",
   "items": [
     {
-      "id": "qwen3.8-flash-next",
-      "name": "Qwen3.8 Flash Next",
+      "id": "qwen3.5-4b",
+      "name": "Qwen3.5 4B",
       "family": "qwen",
-      "params": "9B",
+      "params": "4B",
       "quant": "Q4_K_M",
-      "sizeGb": 5.7,
-      "minVramGb": 8,
-      "desc": "日常对话与 Agent，响应快。",
-      "tags": ["对话", "Agent", "最新"],
-      "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
-      "tag": "官方新榜",
-      "vision": true
+      "sizeGb": 2.6,
+      "minVramGb": 4,
+      "desc": "官方清单里最小的对话模型，核显或小显存也能跑。",
+      "tags": [
+        "轻量",
+        "对话"
+      ],
+      "repo": "unsloth/Qwen3.5-4B-GGUF",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
     },
     {
       "id": "qwen3.5-9b",
@@ -24,10 +35,351 @@
       "quant": "Q4_K_M",
       "sizeGb": 5.6,
       "minVramGb": 7,
-      "desc": "中文写作与日常问答的均衡档。",
-      "tags": ["对话", "写作", "中文"],
+      "desc": "中文写作与日常问答的均衡档，8 GB 显卡可用。",
+      "tags": [
+        "对话",
+        "写作",
+        "中文"
+      ],
       "repo": "unsloth/Qwen3.5-9B-GGUF",
-      "vision": false
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "qwen3.8-flash-next",
+      "name": "Qwen3.8 Flash Next",
+      "family": "qwen",
+      "params": "9B",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.7,
+      "minVramGb": 8,
+      "desc": "官方 2026-08 新榜，速度快，适合日常对话与 Agent。",
+      "tags": [
+        "对话",
+        "Agent",
+        "最新"
+      ],
+      "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
+      "tag": "官方新榜",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "glm-4.7-flash",
+      "name": "GLM-4.7 Flash",
+      "family": "glm",
+      "params": "9B",
+      "quant": "Q4_K_M",
+      "sizeGb": 5.8,
+      "minVramGb": 8,
+      "desc": "智谱 GLM 的轻量版，中文指令跟随稳。",
+      "tags": [
+        "中文",
+        "对话"
+      ],
+      "repo": "unsloth/GLM-4.7-Flash-GGUF",
+      "vision": true,
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL",
+        "MXFP4"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gemma-4-12b",
+      "name": "Gemma 4 12B",
+      "family": "gemma",
+      "params": "12B",
+      "quant": "Q4_K_M",
+      "sizeGb": 7.3,
+      "minVramGb": 10,
+      "desc": "多语言与图像理解，回答细腻，适合内容创作。",
+      "tags": [
+        "多模态",
+        "创作"
+      ],
+      "repo": "unsloth/gemma-4-12b-it-GGUF",
+      "vision": true,
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "qwen3.6-27b",
+      "name": "Qwen3.6 27B",
+      "family": "qwen",
+      "params": "27B",
+      "quant": "Q4_K_M",
+      "sizeGb": 16.7,
+      "minVramGb": 20,
+      "desc": "16 GB 显存需要分层；写作与代码明显更强。",
+      "tags": [
+        "高质量",
+        "长文"
+      ],
+      "repo": "unsloth/Qwen3.6-27B-GGUF",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "qwen3.8-27b",
+      "name": "Qwen3.8 27B",
+      "family": "qwen",
+      "params": "27B",
+      "quant": "Q4_K_M",
+      "sizeGb": 16.7,
+      "minVramGb": 20,
+      "desc": "官方 2026-08 主推 27B，适合创作与复杂推理。",
+      "tags": [
+        "高质量",
+        "推理"
+      ],
+      "repo": "unsloth/Qwen3.8-27B-GGUF",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gemma-4-26b-a4b",
+      "name": "Gemma 4 26B A4B",
+      "family": "gemma",
+      "params": "26B",
+      "quant": "Q4_K_M",
+      "sizeGb": 16.2,
+      "minVramGb": 20,
+      "desc": "MoE 结构，激活参数少，速度快但体积偏大。",
+      "tags": [
+        "MoE",
+        "多模态"
+      ],
+      "repo": "unsloth/gemma-4-26B-A4B-it-GGUF",
+      "vision": true,
+      "quants": [
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gemma-4-31b",
+      "name": "Gemma 4 31B",
+      "family": "gemma",
+      "params": "31B",
+      "quant": "Q4_K_M",
+      "sizeGb": 19.3,
+      "minVramGb": 24,
+      "desc": "官方清单里 Gemma 的旗舰，适合 24 GB 以上显卡。",
+      "tags": [
+        "旗舰",
+        "多模态"
+      ],
+      "repo": "unsloth/gemma-4-31B-it-GGUF",
+      "vision": true,
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "muse-glimmer-30b",
+      "name": "Muse Glimmer 30B",
+      "family": "muse",
+      "params": "30B",
+      "quant": "UD-Q2_K_XL",
+      "sizeGb": 12.1,
+      "minVramGb": 12,
+      "desc": "官方首页主推的创作模型，显存吃紧时自动分层。",
+      "tags": [
+        "创作",
+        "长文"
+      ],
+      "repo": "unsloth/Muse-Glimmer-30B-GGUF",
+      "tag": "官方主推",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q2_K_XL"
+    },
+    {
+      "id": "qwen3.6-35b-a3b",
+      "name": "Qwen3.6 35B A3B",
+      "family": "qwen",
+      "params": "35B",
+      "quant": "Q4_K_M",
+      "sizeGb": 21.7,
+      "minVramGb": 28,
+      "desc": "MoE 大模型，3B 激活参数，吞吐高。",
+      "tags": [
+        "MoE",
+        "高质量"
+      ],
+      "repo": "unsloth/Qwen3.6-35B-A3B-GGUF",
+      "quants": [
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL",
+        "MXFP4"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "devstral-24b",
+      "name": "Devstral Small 2 24B",
+      "family": "mistral",
+      "params": "24B",
+      "quant": "Q4_K_M",
+      "sizeGb": 14.9,
+      "minVramGb": 18,
+      "desc": "代码与工具调用专精，官方 Agent 的常见底座。",
+      "tags": [
+        "代码",
+        "Agent"
+      ],
+      "repo": "unsloth/Devstral-Small-2-24B-Instruct-2512-GGUF",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gpt-oss-20b",
+      "name": "GPT-OSS 20B",
+      "family": "gpt-oss",
+      "params": "20B",
+      "quant": "MXFP4",
+      "sizeGb": 12.4,
+      "minVramGb": 16,
+      "desc": "OpenAI 开源 20B，工具调用规范，适合 Agent。",
+      "tags": [
+        "Agent",
+        "推理"
+      ],
+      "repo": "unsloth/gpt-oss-20b-GGUF",
+      "quants": [
+        "UD-Q4_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "qwen3.5-122b-a10b",
+      "name": "Qwen3.5 122B A10B",
+      "family": "qwen",
+      "params": "122B",
+      "quant": "Q4_K_M",
+      "sizeGb": 74,
+      "minVramGb": 80,
+      "desc": "官方清单里的超大 MoE，需要多卡或分层到内存。",
+      "tags": [
+        "超大",
+        "MoE"
+      ],
+      "repo": "unsloth/Qwen3.5-122B-A10B-GGUF",
+      "quants": [
+        "UD-Q2_K_XL",
+        "UD-Q3_K_XL",
+        "UD-Q4_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL",
+        "MXFP4"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gpt-oss-120b",
+      "name": "GPT-OSS 120B",
+      "family": "gpt-oss",
+      "params": "120B",
+      "quant": "MXFP4",
+      "sizeGb": 63.4,
+      "minVramGb": 72,
+      "desc": "OpenAI 开源 120B，本地能跑的天花板之一。",
+      "tags": [
+        "超大",
+        "推理"
+      ],
+      "repo": "unsloth/gpt-oss-120b-GGUF",
+      "quants": [
+        "UD-Q4_K_XL",
+        "UD-Q6_K_XL",
+        "UD-Q8_K_XL"
+      ],
+      "recommendedQuant": "UD-Q4_K_XL"
+    },
+    {
+      "id": "gemma-4-e4b",
+      "name": "Gemma 4 E4B",
+      "family": "gemma",
+      "params": "E4B",
+      "quant": "Q8_0",
+      "sizeGb": 8.2,
+      "minVramGb": 8,
+      "desc": "为笔记本和小显存设计，8 GB 显存或纯 CPU 也能跑。",
+      "tags": [
+        "轻量",
+        "多模态"
+      ],
+      "repo": "unsloth/gemma-4-E4B-it-GGUF",
+      "vision": true
     }
   ]
 }
