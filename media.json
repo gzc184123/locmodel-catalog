@@ -217,7 +217,7 @@
       "repo": "leejet/flux-3-image-klein-GGUF",
       "quant": "Q4_0",
       "sizeGb": 3.3,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（3.3 GB）。",
       "quants": [
         "Q4_0",
         "Q6_K",
@@ -229,7 +229,9 @@
       ],
       "source": "auto",
       "downloads": 63403,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-2-klein-9b",
@@ -238,14 +240,16 @@
       "repo": "leejet/FLUX.2-klein-9B-GGUF",
       "quant": "Q4_0",
       "sizeGb": 5.2,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（5.2 GB）。",
       "quants": [
         "Q4_0",
         "Q8_0"
       ],
       "source": "auto",
       "downloads": 29211,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "moss-image-sft",
@@ -254,7 +258,7 @@
       "repo": "leejet/MOSS-Image-SFT-GGUF",
       "quant": "Q4_0",
       "sizeGb": 3.1,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（3.1 GB）。",
       "quants": [
         "Q4_0",
         "Q6_K",
@@ -266,7 +270,9 @@
       ],
       "source": "auto",
       "downloads": 25281,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-2-klein-base-4b",
@@ -275,14 +281,16 @@
       "repo": "leejet/FLUX.2-klein-base-4B-GGUF",
       "quant": "Q4_0",
       "sizeGb": 2.3,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（2.3 GB）。",
       "quants": [
         "Q4_0",
         "Q8_0"
       ],
       "source": "auto",
       "downloads": 8053,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-2-klein-base-9b",
@@ -291,14 +299,16 @@
       "repo": "leejet/FLUX.2-klein-base-9B-GGUF",
       "quant": "Q4_0",
       "sizeGb": 5.2,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（5.2 GB）。",
       "quants": [
         "Q4_0",
         "Q8_0"
       ],
       "source": "auto",
       "downloads": 4583,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "ideogram-4",
@@ -307,13 +317,15 @@
       "repo": "leejet/ideogram-4-GGUF",
       "quant": "Q4_0",
       "sizeGb": 10.5,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（10.5 GB）。",
       "quants": [
         "Q4_0"
       ],
       "source": "auto",
       "downloads": 4299,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-3-image-klein-base",
@@ -322,7 +334,7 @@
       "repo": "leejet/flux-3-image-klein-base-GGUF",
       "quant": "Q4_0",
       "sizeGb": 3.3,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_0（3.3 GB）。",
       "quants": [
         "Q4_0",
         "Q6_K",
@@ -334,7 +346,9 @@
       ],
       "source": "auto",
       "downloads": 3238,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen-image-2-1",
@@ -343,7 +357,7 @@
       "repo": "unsloth/Qwen-Image-2.1-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 3.9,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（3.9 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -360,7 +374,9 @@
       ],
       "source": "auto",
       "downloads": 1610213,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen-image-2-1-turbo",
@@ -369,7 +385,7 @@
       "repo": "unsloth/Qwen-Image-2.1-Turbo-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 3.9,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（3.9 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -386,7 +402,9 @@
       ],
       "source": "auto",
       "downloads": 1356934,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "z-image-turbo",
@@ -395,7 +413,7 @@
       "repo": "unsloth/Z-Image-Turbo-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 3.6,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（3.6 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -415,7 +433,9 @@
       ],
       "source": "auto",
       "downloads": 900469,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-2-klein-4b",
@@ -424,7 +444,7 @@
       "repo": "unsloth/FLUX.2-klein-4B-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 2.4,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（2.4 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -444,7 +464,9 @@
       ],
       "source": "auto",
       "downloads": 485892,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-2-klein-9b",
@@ -453,7 +475,7 @@
       "repo": "unsloth/FLUX.2-klein-9B-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 5.3,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（5.3 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -473,7 +495,9 @@
       ],
       "source": "auto",
       "downloads": 472716,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen-image-2512",
@@ -482,7 +506,7 @@
       "repo": "unsloth/Qwen-Image-2512-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 12.4,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型，支持中文提示词与文字渲染；推荐 Q4_K_M（12.4 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -502,7 +526,9 @@
       ],
       "source": "auto",
       "downloads": 444744,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "flux-3-image-klein",
@@ -511,7 +537,7 @@
       "repo": "unsloth/flux-3-image-klein-GGUF",
       "quant": "UD-Q4_K_XL",
       "sizeGb": 3.7,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 UD-Q4_K_XL（3.7 GB）。",
       "quants": [
         "UD-Q4_K_XL",
         "Q4_K_M",
@@ -526,7 +552,9 @@
       ],
       "source": "auto",
       "downloads": 331107,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen-image-edit-2509",
@@ -535,7 +563,7 @@
       "repo": "QuantStack/Qwen-Image-Edit-2509-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 12.2,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "图片生成模型；推荐 Q4_K_M（12.2 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -553,7 +581,9 @@
       ],
       "source": "auto",
       "downloads": 194831,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     }
   ],
   "video": [
@@ -761,14 +791,16 @@
       "repo": "leejet/MiniMax-H3-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 73.2,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "视频生成模型；推荐 Q4_K_M（73.2 GB）。",
       "quants": [
         "Q4_K_M",
         "Q2_K_M"
       ],
       "source": "auto",
       "downloads": 209466,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "wan2-2-ti2v-5b",
@@ -777,7 +809,7 @@
       "repo": "unsloth/Wan2.2-TI2V-5B-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 3.2,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "视频生成模型；推荐 Q4_K_M（3.2 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -795,7 +827,9 @@
       ],
       "source": "auto",
       "downloads": 385897,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "ltx-2-5",
@@ -804,7 +838,7 @@
       "repo": "unsloth/LTX-2.5-GGUF",
       "quant": "UD-Q4_K_XL",
       "sizeGb": 26.1,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "视频生成模型；推荐 UD-Q4_K_XL（26.1 GB）。",
       "quants": [
         "UD-Q4_K_XL",
         "Q4_K_M",
@@ -820,7 +854,9 @@
       ],
       "source": "auto",
       "downloads": 341263,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "wan2-2-t2v-a14b",
@@ -829,7 +865,7 @@
       "repo": "QuantStack/Wan2.2-T2V-A14B-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 18,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "视频生成模型；推荐 Q4_K_M（18 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -847,7 +883,9 @@
       ],
       "source": "auto",
       "downloads": 658544,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "wan2-1-14b-vace",
@@ -856,7 +894,7 @@
       "repo": "QuantStack/Wan2.1_14B_VACE-GGUF",
       "quant": "Q4_K_M",
       "sizeGb": 10.8,
-      "note": "自动收录：HuggingFace 公开仓库，使用前请按仓库文件核对组件。",
+      "note": "视频生成模型；推荐 Q4_K_M（10.8 GB）。",
       "quants": [
         "Q4_K_M",
         "Q4_K_S",
@@ -874,7 +912,9 @@
       ],
       "source": "auto",
       "downloads": 128578,
-      "lastModified": ""
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     }
   ]
 }

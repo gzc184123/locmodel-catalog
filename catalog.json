@@ -430,7 +430,7 @@
       "quant": "Q4_0",
       "sizeGb": 1.2,
       "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "支持看图，文本对话模型；推荐 Q4_0（1.2 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -449,7 +449,9 @@
       "source": "auto",
       "lastModified": "2026-11-01T08:41:49.000Z",
       "downloads": 12203,
-      "estTokS": 480
+      "estTokS": 480,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mimo-v2-6-flash-mopd",
@@ -460,7 +462,7 @@
       "quant": "Q4_0",
       "sizeGb": 1.2,
       "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "支持看图，文本对话模型；推荐 Q4_0（1.2 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -480,7 +482,9 @@
       "source": "auto",
       "lastModified": "2026-11-01T07:51:11.000Z",
       "downloads": 6521,
-      "estTokS": 480
+      "estTokS": 480,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "clef-flash",
@@ -491,7 +495,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 6.3,
       "minVramGb": 8,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "支持看图，文本对话模型；推荐 Q4_K_M（6.3 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -508,7 +512,9 @@
       "source": "auto",
       "lastModified": "2026-11-01T03:43:36.000Z",
       "downloads": 53306,
-      "estTokS": 91.4
+      "estTokS": 91.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "spark-x2-6-1-7b",
@@ -519,7 +525,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "bartowski 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -553,7 +559,9 @@
       "source": "auto",
       "lastModified": "2026-10-31T17:43:57.000Z",
       "downloads": 3555,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mellum2-1-12b-a2-5b-thinking-mtp",
@@ -564,7 +572,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 8.4,
       "minVramGb": 10,
-      "desc": "bartowski 的 12B A2.5B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "12B A2.5B 参数，偏推理，文本对话模型；推荐 Q4_K_M（8.4 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -599,7 +607,9 @@
       "source": "auto",
       "lastModified": "2026-10-30T20:42:00.000Z",
       "downloads": 4462,
-      "estTokS": 230.4
+      "estTokS": 230.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-1-7b",
@@ -610,7 +620,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "lmstudio-community 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -625,7 +635,9 @@
       "source": "auto",
       "lastModified": "2026-10-27T17:03:16.000Z",
       "downloads": 7328,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-vl-2b",
@@ -636,7 +648,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "lmstudio-community 的 2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "2B 参数，支持看图，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -652,7 +664,9 @@
       "source": "auto",
       "lastModified": "2026-10-27T17:02:49.000Z",
       "downloads": 13768,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lbs-27b",
@@ -663,7 +677,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 16,
       "minVramGb": 19,
-      "desc": "bartowski 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，支持看图，文本对话模型；推荐 Q4_K_M（16 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -701,7 +715,9 @@
       "source": "auto",
       "lastModified": "2026-10-27T13:38:18.000Z",
       "downloads": 3980,
-      "estTokS": 10.8
+      "estTokS": 10.8,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "nvidia-nemotron-3-5-bolt-e4b",
@@ -712,7 +728,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 4.7,
       "minVramGb": 6,
-      "desc": "unsloth 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（4.7 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -735,7 +751,9 @@
       "source": "auto",
       "lastModified": "2026-10-24T04:00:15.000Z",
       "downloads": 536177,
-      "estTokS": 122.6
+      "estTokS": 122.6,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "spark-x2-6-4b",
@@ -746,7 +764,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.4,
       "minVramGb": 4,
-      "desc": "bartowski 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，文本对话模型；推荐 Q4_K_M（2.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -780,7 +798,9 @@
       "source": "auto",
       "lastModified": "2026-10-20T21:29:26.000Z",
       "downloads": 26741,
-      "estTokS": 240
+      "estTokS": 240,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm2-5-24b-a2b",
@@ -791,7 +811,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 13.9,
       "minVramGb": 17,
-      "desc": "unsloth 的 24B A2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "24B A2B 参数，文本对话模型；推荐 UD-Q4_K_XL（13.9 GB）。",
       "tags": [
         "对话"
       ],
@@ -813,7 +833,9 @@
       "source": "auto",
       "lastModified": "2026-10-20T06:55:37.000Z",
       "downloads": 464728,
-      "estTokS": 348.1
+      "estTokS": 348.1,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "smollm2-135m",
@@ -824,7 +846,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 0.1,
       "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "文本对话模型；推荐 Q4_K_M（0.1 GB）。",
       "tags": [
         "对话"
       ],
@@ -840,7 +862,9 @@
       "source": "auto",
       "lastModified": "2026-10-19T15:36:00.000Z",
       "downloads": 3427,
-      "estTokS": 5760
+      "estTokS": 5760,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-5-0-8b",
@@ -851,7 +875,7 @@
       "quant": "Q4_0",
       "sizeGb": 0.5,
       "minVramGb": 4,
-      "desc": "ggml-org 的 0.8B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "0.8B 参数，支持看图，文本对话模型；推荐 Q4_0（0.5 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -868,7 +892,9 @@
       "source": "auto",
       "lastModified": "2026-10-19T15:35:39.000Z",
       "downloads": 56586,
-      "estTokS": 1152
+      "estTokS": 1152,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-8b",
@@ -879,7 +905,7 @@
       "quant": "Q8_0",
       "sizeGb": 10.3,
       "minVramGb": 12,
-      "desc": "ggml-org 的 8B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "8B 参数，文本对话模型；推荐 Q8_0（10.3 GB）。",
       "tags": [
         "对话"
       ],
@@ -894,7 +920,9 @@
       "source": "auto",
       "lastModified": "2026-10-19T15:35:31.000Z",
       "downloads": 3698,
-      "estTokS": 55.9
+      "estTokS": 55.9,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-0-6b",
@@ -905,7 +933,7 @@
       "quant": "Q4_0",
       "sizeGb": 0.4,
       "minVramGb": 4,
-      "desc": "ggml-org 的 0.6B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "0.6B 参数，文本对话模型；推荐 Q4_0（0.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -922,7 +950,9 @@
       "source": "auto",
       "lastModified": "2026-10-19T15:35:25.000Z",
       "downloads": 60376,
-      "estTokS": 1440
+      "estTokS": 1440,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "nvidia-nemotron-3-nano-30b-a3b",
@@ -933,7 +963,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 20.9,
       "minVramGb": 25,
-      "desc": "ggml-org 的 30B A3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "30B A3B 参数，文本对话模型；推荐 Q4_K_M（20.9 GB）。",
       "tags": [
         "对话"
       ],
@@ -949,7 +979,9 @@
       "source": "auto",
       "lastModified": "2026-10-19T14:16:27.000Z",
       "downloads": 8907,
-      "estTokS": 192.9
+      "estTokS": 192.9,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "minicpm-v-4-7-35b-a3b",
@@ -960,7 +992,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 20.8,
       "minVramGb": 25,
-      "desc": "bartowski 的 35B A3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "35B A3B 参数，支持看图，文本对话模型；推荐 Q4_K_M（20.8 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -998,7 +1030,9 @@
       "source": "auto",
       "lastModified": "2026-10-18T07:43:35.000Z",
       "downloads": 5675,
-      "estTokS": 226.2
+      "estTokS": 226.2,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "nvidia-nemotron-3-5-bolt-74b-a9b",
@@ -1009,7 +1043,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 46.8,
       "minVramGb": 56,
-      "desc": "unsloth 的 74B A9B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "74B A9B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（46.8 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -1036,7 +1070,9 @@
       "source": "auto",
       "lastModified": "2026-10-16T13:25:22.000Z",
       "downloads": 81085,
-      "estTokS": 70.8
+      "estTokS": 70.8,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "userrepgen-4b",
@@ -1047,7 +1083,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.5,
       "minVramGb": 4,
-      "desc": "bartowski 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，文本对话模型；推荐 Q4_K_M（2.5 GB）。",
       "tags": [
         "对话"
       ],
@@ -1082,7 +1118,9 @@
       "source": "auto",
       "lastModified": "2026-10-14T23:56:12.000Z",
       "downloads": 3330,
-      "estTokS": 230.4
+      "estTokS": 230.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "aescode-8b",
@@ -1093,7 +1131,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 4.9,
       "minVramGb": 6,
-      "desc": "bartowski 的 8B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "8B 参数，支持看图，偏编程，文本对话模型；推荐 Q4_K_M（4.9 GB）。",
       "tags": [
         "对话",
         "多模态",
@@ -1130,7 +1168,9 @@
       "source": "auto",
       "lastModified": "2026-10-11T07:45:01.000Z",
       "downloads": 4618,
-      "estTokS": 117.6
+      "estTokS": 117.6,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mellum2-1-12b-a2-5b-thinking",
@@ -1141,7 +1181,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 8.2,
       "minVramGb": 10,
-      "desc": "bartowski 的 12B A2.5B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "12B A2.5B 参数，偏推理，文本对话模型；推荐 Q4_K_M（8.2 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -1177,7 +1217,9 @@
       "source": "auto",
       "lastModified": "2026-10-08T15:15:18.000Z",
       "downloads": 11850,
-      "estTokS": 236
+      "estTokS": 236,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "k2-horizon-mova-36b-a4b",
@@ -1188,7 +1230,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 21.1,
       "minVramGb": 25,
-      "desc": "bartowski 的 36B A4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "36B A4B 参数，文本对话模型；推荐 Q4_K_M（21.1 GB）。",
       "tags": [
         "对话"
       ],
@@ -1225,7 +1267,9 @@
       "source": "auto",
       "lastModified": "2026-10-07T18:12:59.000Z",
       "downloads": 7021,
-      "estTokS": 172
+      "estTokS": 172,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "k2-horizon-7b",
@@ -1236,7 +1280,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 5.4,
       "minVramGb": 6,
-      "desc": "bartowski 的 7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "7B 参数，文本对话模型；推荐 Q4_K_M（5.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -1271,7 +1315,9 @@
       "source": "auto",
       "lastModified": "2026-10-07T11:42:11.000Z",
       "downloads": 4959,
-      "estTokS": 106.7
+      "estTokS": 106.7,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "k2-horizon-3-7b",
@@ -1282,7 +1328,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 3,
       "minVramGb": 4,
-      "desc": "bartowski 的 3.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "3.7B 参数，文本对话模型；推荐 Q4_K_M（3 GB）。",
       "tags": [
         "对话"
       ],
@@ -1317,7 +1363,9 @@
       "source": "auto",
       "lastModified": "2026-10-07T11:07:39.000Z",
       "downloads": 4926,
-      "estTokS": 192
+      "estTokS": 192,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mimo-v2-6-pro-rl",
@@ -1328,7 +1376,7 @@
       "quant": "Q4_0",
       "sizeGb": 2,
       "minVramGb": 4,
-      "desc": "ggml-org 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "支持看图，文本对话模型；推荐 Q4_0（2 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -1347,7 +1395,9 @@
       "source": "auto",
       "lastModified": "2026-10-02T20:35:21.000Z",
       "downloads": 5014,
-      "estTokS": 288
+      "estTokS": 288,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "frognano-4b-2609",
@@ -1358,7 +1408,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.6,
       "minVramGb": 4,
-      "desc": "bartowski 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，支持看图，文本对话模型；推荐 Q4_K_M（2.6 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -1394,7 +1444,9 @@
       "source": "auto",
       "lastModified": "2026-10-02T20:30:19.000Z",
       "downloads": 16788,
-      "estTokS": 221.5
+      "estTokS": 221.5,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mimo-v2-6-distill-qwen-9b",
@@ -1405,7 +1457,7 @@
       "quant": "Q8_0",
       "sizeGb": 8.9,
       "minVramGb": 11,
-      "desc": "ggml-org 的 9B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "9B 参数，支持看图，文本对话模型；推荐 Q8_0（8.9 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -1420,7 +1472,9 @@
       "source": "auto",
       "lastModified": "2026-09-22T06:39:30.000Z",
       "downloads": 5217,
-      "estTokS": 64.7
+      "estTokS": 64.7,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "nvidia-nemotron-3-5-lightning-30b-a3b",
@@ -1431,7 +1485,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 23.8,
       "minVramGb": 29,
-      "desc": "unsloth 的 30B A3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "30B A3B 参数，文本对话模型；推荐 UD-Q4_K_XL（23.8 GB）。",
       "tags": [
         "对话"
       ],
@@ -1461,7 +1515,9 @@
       "source": "auto",
       "lastModified": "2026-08-13T00:19:58.000Z",
       "downloads": 54397,
-      "estTokS": 169.4
+      "estTokS": 169.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm2-5-vl-3b",
@@ -1472,7 +1528,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 1.6,
       "minVramGb": 4,
-      "desc": "unsloth 的 3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "3B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（1.6 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -1507,7 +1563,9 @@
       "source": "auto",
       "lastModified": "2026-08-12T23:35:10.000Z",
       "downloads": 8293,
-      "estTokS": 360
+      "estTokS": 360,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm2-5-1-2b-instruct",
@@ -1518,7 +1576,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 0.7,
       "minVramGb": 4,
-      "desc": "unsloth 的 1.2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.2B 参数，文本对话模型；推荐 UD-Q4_K_XL（0.7 GB）。",
       "tags": [
         "对话"
       ],
@@ -1550,7 +1608,9 @@
       "source": "auto",
       "lastModified": "2026-08-05T14:14:38.000Z",
       "downloads": 35730,
-      "estTokS": 822.9
+      "estTokS": 822.9,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "gemma-4-e4b-it-abliterated-uncensored-philadelphia-class-i1",
@@ -1561,7 +1621,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 4.9,
       "minVramGb": 6,
-      "desc": "mradermacher 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（4.9 GB）。",
       "tags": [
         "对话"
       ],
@@ -1598,7 +1658,9 @@
       "source": "auto",
       "lastModified": "2026-11-11T01:07:29.000Z",
       "downloads": 4689,
-      "estTokS": 117.6
+      "estTokS": 117.6,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "arete-27b-unlocked-uncensored-heretic-i1",
@@ -1609,7 +1671,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 15.4,
       "minVramGb": 18,
-      "desc": "mradermacher 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（15.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -1645,7 +1707,9 @@
       "source": "auto",
       "lastModified": "2026-11-10T20:39:12.000Z",
       "downloads": 813,
-      "estTokS": 13.4
+      "estTokS": 13.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-8-4b-distill-ara-abliterated-i1",
@@ -1656,7 +1720,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.5,
       "minVramGb": 4,
-      "desc": "mradermacher 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（2.5 GB）。",
       "tags": [
         "对话"
       ],
@@ -1693,7 +1757,9 @@
       "source": "auto",
       "lastModified": "2026-11-10T13:48:09.000Z",
       "downloads": 669,
-      "estTokS": 230.4
+      "estTokS": 230.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "arete-27b-uncensored-v2-i1",
@@ -1704,7 +1770,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 15.7,
       "minVramGb": 19,
-      "desc": "mradermacher 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（15.7 GB）。",
       "tags": [
         "对话"
       ],
@@ -1731,7 +1797,9 @@
       "source": "auto",
       "lastModified": "2026-11-10T06:00:08.000Z",
       "downloads": 700,
-      "estTokS": 12
+      "estTokS": 12,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-omni-2b-abliterated-heretic-v2-i1",
@@ -1742,7 +1810,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "2B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -1779,7 +1847,9 @@
       "source": "auto",
       "lastModified": "2026-11-10T01:44:03.000Z",
       "downloads": 1093,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-omni-2b-abliterated-i1",
@@ -1790,7 +1860,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "2B 参数，无审查微调，偏推理，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -1828,7 +1898,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T23:30:56.000Z",
       "downloads": 1094,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-vl-2b-uncensored-i1",
@@ -1839,7 +1911,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "2B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -1876,7 +1948,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T22:24:34.000Z",
       "downloads": 847,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-1-7b-ara-abliterated-i1",
@@ -1887,7 +1961,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -1924,7 +1998,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T18:31:34.000Z",
       "downloads": 936,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "s5-nano-uncensored-i1",
@@ -1935,7 +2011,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.6,
       "minVramGb": 4,
-      "desc": "mradermacher 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "无审查微调，文本对话模型；推荐 Q4_K_M（2.6 GB）。",
       "tags": [
         "对话"
       ],
@@ -1963,7 +2039,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T17:33:05.000Z",
       "downloads": 724,
-      "estTokS": 221.5
+      "estTokS": 221.5,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-1-7b-heretic-abliterated-i1",
@@ -1974,7 +2052,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，无审查微调，偏编程，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话",
         "代码"
@@ -2012,7 +2090,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T16:20:48.000Z",
       "downloads": 1031,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-vl-2b-surgical-abliterated-i1",
@@ -2023,7 +2103,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "2B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -2060,7 +2140,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T14:00:06.000Z",
       "downloads": 946,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "deepseek-v4-pro-qwen3-5-9b-uncensored-heretic-i1",
@@ -2071,7 +2153,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 5.2,
       "minVramGb": 6,
-      "desc": "mradermacher 的 9B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "9B 参数，无审查微调，偏推理，文本对话模型；推荐 Q4_K_M（5.2 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -2109,7 +2191,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T13:21:31.000Z",
       "downloads": 290001,
-      "estTokS": 110.8
+      "estTokS": 110.8,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-1-7b-uncensored-i1",
@@ -2120,7 +2204,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，无审查微调，偏编程，偏推理，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话",
         "代码",
@@ -2159,7 +2243,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T09:52:04.000Z",
       "downloads": 927,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm3-1-7b-surgical-abliterated-i1",
@@ -2170,7 +2256,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 1,
       "minVramGb": 4,
-      "desc": "mradermacher 的 1.7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1.7B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（1 GB）。",
       "tags": [
         "对话"
       ],
@@ -2207,7 +2293,9 @@
       "source": "auto",
       "lastModified": "2026-11-09T06:37:10.000Z",
       "downloads": 913,
-      "estTokS": 576
+      "estTokS": 576,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "arete-27b-uncensored-i1",
@@ -2218,7 +2306,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 15.7,
       "minVramGb": 19,
-      "desc": "mradermacher 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（15.7 GB）。",
       "tags": [
         "对话"
       ],
@@ -2245,7 +2333,9 @@
       "source": "auto",
       "lastModified": "2026-11-08T21:14:33.000Z",
       "downloads": 1474,
-      "estTokS": 12
+      "estTokS": 12,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-8-27b-uncensored-v3-i1",
@@ -2256,7 +2346,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 15.4,
       "minVramGb": 18,
-      "desc": "mradermacher 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（15.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -2292,7 +2382,9 @@
       "source": "auto",
       "lastModified": "2026-11-08T12:00:08.000Z",
       "downloads": 1634,
-      "estTokS": 13.4
+      "estTokS": 13.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "deepseek-v4-pro-qwen3-5-4b-uncensored-heretic-i1",
@@ -2303,7 +2395,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.5,
       "minVramGb": 4,
-      "desc": "mradermacher 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，无审查微调，偏推理，文本对话模型；推荐 Q4_K_M（2.5 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -2341,7 +2433,9 @@
       "source": "auto",
       "lastModified": "2026-11-08T09:14:36.000Z",
       "downloads": 7256,
-      "estTokS": 230.4
+      "estTokS": 230.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "frost-cyber-mini-uncensored-v1-1-i1",
@@ -2352,7 +2446,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.4,
       "minVramGb": 4,
-      "desc": "mradermacher 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "无审查微调，文本对话模型；推荐 Q4_K_M（2.4 GB）。",
       "tags": [
         "对话"
       ],
@@ -2389,7 +2483,9 @@
       "source": "auto",
       "lastModified": "2026-11-08T04:13:55.000Z",
       "downloads": 967,
-      "estTokS": 240
+      "estTokS": 240,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen-3-8-27b-uncensored-i1",
@@ -2400,7 +2496,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 15.7,
       "minVramGb": 19,
-      "desc": "mradermacher 的 27B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "27B 参数，支持看图，无审查微调，文本对话模型；推荐 Q4_K_M（15.7 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -2428,7 +2524,9 @@
       "source": "auto",
       "lastModified": "2026-11-07T18:49:38.000Z",
       "downloads": 1446,
-      "estTokS": 12
+      "estTokS": 12,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "lfm2-5-24b-a2b-uncensored-fiction-nblora-merged2-i1",
@@ -2439,7 +2537,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 13.5,
       "minVramGb": 16,
-      "desc": "mradermacher 的 24B A2B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "24B A2B 参数，无审查微调，文本对话模型；推荐 Q4_K_M（13.5 GB）。",
       "tags": [
         "对话"
       ],
@@ -2475,7 +2573,9 @@
       "source": "auto",
       "lastModified": "2026-11-07T00:00:05.000Z",
       "downloads": 3728,
-      "estTokS": 358.4
+      "estTokS": 358.4,
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "nvidia-nemotron-3-5-super-vl-120b-a12b",
@@ -2486,7 +2586,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 80.9,
       "minVramGb": 97,
-      "desc": "unsloth 的 120B A12B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "120B A12B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（80.9 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -2511,7 +2611,9 @@
       "lastModified": "2026-10-15T14:55:06.000Z",
       "downloads": 50668,
       "estTokS": 37.4,
-      "tag": "LM Studio"
+      "tag": "LM Studio",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "gemma-3-1b-it",
@@ -2522,7 +2624,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 0.8,
       "minVramGb": 4,
-      "desc": "lmstudio-community 的 1B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "1B 参数，文本对话模型；推荐 Q4_K_M（0.8 GB）。",
       "tags": [
         "对话"
       ],
@@ -2540,7 +2642,9 @@
       "lastModified": "2025-03-12T18:32:16.000Z",
       "downloads": 203036,
       "estTokS": 720,
-      "tag": "LM Studio"
+      "tag": "LM Studio",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen3-coder-30b-a3b-instruct",
@@ -2551,7 +2655,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 16.8,
       "minVramGb": 20,
-      "desc": "ggml-org 的 30B A3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "30B A3B 参数，偏编程，文本对话模型；推荐 Q4_K_M（16.8 GB）。",
       "tags": [
         "对话",
         "代码"
@@ -2569,7 +2673,9 @@
       "lastModified": "2026-10-22T12:17:35.000Z",
       "downloads": 61790,
       "estTokS": 240,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "llama-3-2-3b-instruct",
@@ -2580,7 +2686,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 1.9,
       "minVramGb": 4,
-      "desc": "unsloth 的 3B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "3B 参数，文本对话模型；推荐 UD-Q4_K_XL（1.9 GB）。",
       "tags": [
         "对话"
       ],
@@ -2621,7 +2727,9 @@
       "lastModified": "2025-11-08T06:37:39.000Z",
       "downloads": 252712,
       "estTokS": 303.2,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "mistral-small-3-2-24b-instruct-2506",
@@ -2632,7 +2740,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 13.5,
       "minVramGb": 16,
-      "desc": "unsloth 的 24B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "24B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（13.5 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -2673,7 +2781,9 @@
       "lastModified": "2025-08-26T06:20:02.000Z",
       "downloads": 134376,
       "estTokS": 42.7,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "gemma-3-4b-it",
@@ -2684,7 +2794,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 2.4,
       "minVramGb": 4,
-      "desc": "unsloth 的 4B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "4B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（2.4 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -2725,7 +2835,9 @@
       "lastModified": "2025-08-14T19:57:28.000Z",
       "downloads": 158059,
       "estTokS": 240,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "deepseek-r1-0528-qwen3-8b",
@@ -2736,7 +2848,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 4.8,
       "minVramGb": 6,
-      "desc": "unsloth 的 8B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "8B 参数，偏推理，文本对话模型；推荐 UD-Q4_K_XL（4.8 GB）。",
       "tags": [
         "对话",
         "推理"
@@ -2777,7 +2889,9 @@
       "lastModified": "2025-06-16T00:09:18.000Z",
       "downloads": 159206,
       "estTokS": 120,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen2-5-vl-7b-instruct",
@@ -2788,7 +2902,7 @@
       "quant": "UD-Q4_K_XL",
       "sizeGb": 4.5,
       "minVramGb": 5,
-      "desc": "unsloth 的 7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "7B 参数，支持看图，文本对话模型；推荐 UD-Q4_K_XL（4.5 GB）。",
       "tags": [
         "对话",
         "多模态"
@@ -2829,7 +2943,9 @@
       "lastModified": "2025-05-12T01:04:20.000Z",
       "downloads": 287617,
       "estTokS": 128,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "phi-4-mini-instruct",
@@ -2840,7 +2956,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 2.3,
       "minVramGb": 4,
-      "desc": "unsloth 的 GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "偏编程，文本对话模型；推荐 Q4_K_M（2.3 GB）。",
       "tags": [
         "对话",
         "代码"
@@ -2861,7 +2977,9 @@
       "lastModified": "2025-03-03T00:53:59.000Z",
       "downloads": 120251,
       "estTokS": 250.4,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "qwen2-5-coder-7b-instruct",
@@ -2872,7 +2990,7 @@
       "quant": "Q4_K_M",
       "sizeGb": 4.4,
       "minVramGb": 5,
-      "desc": "unsloth 的 7B GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。",
+      "desc": "7B 参数，偏编程，文本对话模型；推荐 Q4_K_M（4.4 GB）。",
       "tags": [
         "对话",
         "代码"
@@ -2894,7 +3012,9 @@
       "lastModified": "2024-11-12T10:01:21.000Z",
       "downloads": 12375,
       "estTokS": 130.9,
-      "tag": "Ollama"
+      "tag": "Ollama",
+      "descSource": "meta",
+      "descUpdated": "2026-11-11"
     },
     {
       "id": "phi-3-5-mini-instruct",

@@ -79,6 +79,20 @@ const MAX_SIZE_GB = 100;
 const TARGET_VRAM_GB = 16;
 const TARGET_RAM_GB = 64;
 const MIN_TOK_S = 10;
+/** 介绍字数上限（按字符数，中文一个字算一个）；可用 --desc-max 覆盖 */
+const DESC_MAX = argValue("--desc-max", 60);
+/** 画图 / 视频条目介绍上限，稍长一点 */
+const MEDIA_NOTE_MAX = argValue("--media-max", 70);
+/** 每次最多补多少条介绍，避免 Actions 超时 */
+const ENRICH_LIMIT = argValue("--enrich-limit", 25);
+/** 可选：OpenAI 兼容的总结接口，GitHub Actions 里用 secrets 注入 */
+const LLM_BASE = (process.env.LLM_BASE_URL || "").trim().replace(/\/+$/, "");
+const LLM_KEY = (process.env.LLM_API_KEY || "").trim();
+const LLM_MODEL = (process.env.LLM_MODEL || "").trim();
+const REFRESH_DESC = args.includes("--refresh-desc");
+/** 只补介绍，不发现新模型（用于回填历史条目） */
+const DESC_ONLY = args.includes("--desc-only");
+const HF_TOKEN = (process.env.HF_TOKEN || "").trim();
 // 与客户端 Models 页一致：显存留 8%，内存预留 4 GB
 const VRAM_BUDGET_GB = Math.max(0, TARGET_VRAM_GB * 0.92 - 1);
 const RAM_BUDGET_GB = Math.max(0, TARGET_RAM_GB - Math.min(4, TARGET_RAM_GB / 3));
@@ -196,6 +210,7 @@ function toItem(author, detail) {
     sizeGb,
     minVramGb: Math.max(4, Math.round(sizeGb * 1.2)),
     desc: `${author} 的${params ? ` ${params} ` : " "}GGUF 仓库，自动收录；量化档位与体积按仓库真实文件计算。`,
+    descSource: "template",
     tags: tagsOf(repo, { tags: detail.tags, vision }),
     repo: detail.id,
     vision,
@@ -219,15 +234,17 @@ function isUncensored(repo, tags) {
 }
 
 /**
- * 与客户端模型页同一套粗估：权重按显存 → 内存 → 硬盘依次放，
- * 显存 800 GB/s、内存 46 GB/s、硬盘 2 GB/s；MoE 只算激活参数。
+ * 与客户端模型页同一套粗估：按显存带宽分档，权重依次放显存 → 内存 → 硬盘，
+ * MoE 只算激活参数；封顶 150 tok/s，避免出现 500+ 的失真数字。
  */
 function estimateSpeed(sizeGb, vramGb, ramGb, params) {
+  const gpuBw =
+    vramGb >= 40 ? 1100 : vramGb >= 24 ? 900 : vramGb >= 16 ? 500 : vramGb >= 12 ? 380 : vramGb >= 8 ? 300 : 220;
   const gpuGb = Math.min(sizeGb, Math.max(0, vramGb));
   const ramUsed = Math.min(sizeGb - gpuGb, Math.max(0, ramGb));
   const diskGb = Math.max(0, sizeGb - gpuGb - ramUsed);
-  const secs = gpuGb / 800 + ramUsed / 46 + diskGb / 2;
-  let tokS = secs > 0 ? 0.72 / secs : 0;
+  const secs = gpuGb / gpuBw + ramUsed / 40 + diskGb / 2;
+  let tokS = secs > 0 ? 0.7 / secs : 0;
 
   const moe = String(params || "").match(/([\d.]+)\s*B\s*A([\d.]+)\s*B/i);
   if (moe) {
@@ -237,13 +254,13 @@ function estimateSpeed(sizeGb, vramGb, ramGb, params) {
     if (total > 0 && active > 0 && active < total) {
       const activeGb = sizeGb * (active / total);
       if (activeGb <= Math.max(0, vramGb)) {
-        let moeTokS = (0.72 / (activeGb / 800)) * 0.7;
+        let moeTokS = (0.7 / (activeGb / gpuBw)) * 0.7;
         if (sizeGb > vramGb + ramGb) moeTokS *= 0.75;
         tokS = Math.max(tokS, moeTokS);
       }
     }
   }
-  return tokS;
+  return Math.min(150, tokS);
 }
 
 function daysAgo(iso) {
@@ -266,6 +283,183 @@ async function fetchText(url, retries = 2) {
     }
   }
   return "";
+}
+
+/* ---------- 自动介绍：模型卡 →（可选 LLM）→ 限长中文一句话 ---------- */
+
+/** 拉模型卡 README（公开仓库不需要 token，配了 HF_TOKEN 可以读受限仓库） */
+async function fetchModelCard(repo) {
+  const headers = { ...UA };
+  if (HF_TOKEN) headers.Authorization = `Bearer ${HF_TOKEN}`;
+  const url = `https://huggingface.co/${repo}/raw/main/README.md`;
+  try {
+    const res = await fetch(url, { headers });
+    if (!res.ok) return "";
+    const text = await res.text();
+    return text.length > 60000 ? text.slice(0, 60000) : text;
+  } catch (err) {
+    console.warn(`  模型卡拉取失败 ${repo}: ${err.message}`);
+    return "";
+  }
+}
+
+/** 去掉徽章、HTML、代码块、表格等，只留正文 */
+function cleanCard(text) {
+  let t = String(text || "");
+  t = t.replace(/^---[\s\S]*?\n---\s*/m, "");
+  t = t.replace(/```[\s\S]*?```/g, " ");
+  t = t.replace(/^\s*\|.*\|\s*$/gm, " ");
+  t = t.replace(/^\s*[-*_]{3,}\s*$/gm, " ");
+  t = t.replace(/!\[[^\]]*\]\([^)]*\)/g, " ");
+  t = t.replace(/\[([^\]]+)\]\([^)]*\)/g, "$1");
+  t = t.replace(/<[^>]+>/g, " ");
+  t = t.replace(/^#{1,6}\s*/gm, "");
+  t = t.replace(/^\s*[-*+]\s+/gm, "");
+  t = t.replace(/^\s*>\s?/gm, "");
+  t = t.replace(/^(model card|license|usage|introduction|模型卡|许可证|使用说明)\s*$/gim, " ");
+  t = t.replace(/[ \t]+/g, " ").replace(/\n{2,}/g, "\n").trim();
+  return t;
+}
+
+/** 截到 max 个字；优先在句末断开，实在断不了就硬截并加省略号 */
+function clipText(text, max) {
+  let t = String(text || "")
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/[*`#>|]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  t = t.replace(/^["'“”‘’]+|["'“”‘’]+$/g, "").trim();
+  if (!t) return "";
+  const chars = Array.from(t);
+  if (chars.length <= max) return t;
+  const head = chars.slice(0, max).join("");
+  const m = head.match(/^([\s\S]*[。！？；;.!?])/);
+  // 句末位置太靠前（不到一半）就硬截，避免只留半句
+  if (m && Array.from(m[1]).length >= Math.floor(max * 0.5)) return m[1];
+  return `${head.replace(/[，,、：:；;]$/, "")}…`;
+}
+
+/** 模型卡里的中文句子（有些仓库的卡是中文写的） */
+function chineseSentence(text, max) {
+  const clean = cleanCard(text);
+  if (!clean) return "";
+  const sentences = clean
+    .split(/(?<=[。！？!?\n])/)
+    .map((s) => s.trim())
+    .filter((s) => s.length >= 12);
+  const zh = sentences.find((s) => {
+    if ((s.match(/[\u4e00-\u9fa5]/g) || []).length < 8) return false;
+    // 只认像模型介绍的句子，避免抓到示例图注 / 幻灯片说明
+    if (/^(这|该|上图|下图|图片|示例|图注|[-–—])/.test(s)) return false;
+    return /模型|支持|参数|训练|对话|语言|文本|图像|视频|推理|量化|上下文/i.test(s);
+  });
+  return zh ? clipText(zh, max) : "";
+}
+
+/** 没有 LLM 时的中文兜底：只用元数据，不编造 */
+function metaDescription(item, kind) {
+  const parts = [];
+  if (item.params) parts.push(`${item.params} 参数`);
+  if (item.vision) parts.push("支持看图");
+  if (item.uncensored) parts.push("无审查微调");
+  if (kind === "media") {
+    parts.push(item.kind === "video" ? "视频生成模型" : "图片生成模型");
+  } else {
+    if ((item.tags || []).includes("代码")) parts.push("偏编程");
+    if ((item.tags || []).includes("推理")) parts.push("偏推理");
+    parts.push("文本对话模型");
+  }
+  const size = item.sizeGb ? `推荐 ${item.quant}（${item.sizeGb} GB）` : "";
+  return `${parts.join("，")}${size ? `；${size}` : ""}。`;
+}
+
+/** 调 OpenAI 兼容接口写一句中文介绍；没配置就返回空串 */
+async function summarizeWithLLM(item, card, max, kind) {
+  if (!LLM_BASE || !LLM_MODEL || !LLM_KEY) return "";
+  const brief = cleanCard(card).slice(0, 3000);
+  const system =
+    "你是本地大模型目录的编辑。根据给出的 HuggingFace 模型信息，用简体中文写一句模型介绍。" +
+    `要求：只写一句话，控制在 ${Math.max(30, max - 10)}～${max} 个汉字；不要换行、不要 markdown、不要链接；` +
+    "说清楚模型类型、规模、擅长什么、显存或使用限制（有才写）；不要营销词，不要重复模型名，不要编造没给的信息。";
+  const user = [
+    `模型：${item.name || item.id}`,
+    `仓库：${item.repo}`,
+    `类型：${kind === "media" ? (item.kind === "video" ? "视频生成" : "图片生成") : "文本对话"}`,
+    item.params ? `参数：${item.params}` : "",
+    item.quant ? `推荐量化：${item.quant}` : "",
+    (item.tags || []).length ? `标签：${item.tags.join("、")}` : "",
+    brief ? `模型卡节选：\n${brief}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  try {
+    const res = await fetch(`${LLM_BASE}/chat/completions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: `Bearer ${LLM_KEY}` },
+      body: JSON.stringify({
+        model: LLM_MODEL,
+        temperature: 0.2,
+        max_tokens: 200,
+        messages: [
+          { role: "system", content: system },
+          { role: "user", content: user },
+        ],
+      }),
+      signal: AbortSignal.timeout(30000),
+    });
+    if (!res.ok) {
+      console.warn(`  LLM 总结失败 HTTP ${res.status}`);
+      return "";
+    }
+    const data = await res.json();
+    const content = data?.choices?.[0]?.message?.content || "";
+    return clipText(content, max);
+  } catch (err) {
+    console.warn(`  LLM 总结失败：${err.message}`);
+    return "";
+  }
+}
+
+/** 给自动收录的条目补介绍，只动没有人工文案的条目 */
+async function enrichDescriptions(list, kind) {
+  const field = kind === "media" ? "note" : "desc";
+  const max = kind === "media" ? MEDIA_NOTE_MAX : DESC_MAX;
+  let used = 0;
+  for (const item of list) {
+    if (used >= ENRICH_LIMIT) break;
+    const managed = ["auto", "lmstudio", "ollama"].includes(item.source);
+    if (!managed || !item.repo) continue;
+    // AI 写过的除非显式刷新，不再重复花钱
+    if (item.descSource === "ai" && !REFRESH_DESC) continue;
+    const current = String(item[field] || "");
+    const needs =
+      REFRESH_DESC ||
+      !item.descSource ||
+      item.descSource === "template" ||
+      item.descSource === "meta" ||
+      /自动收录|按仓库真实文件计算/.test(current);
+    if (!needs) continue;
+
+    const card = await fetchModelCard(item.repo);
+    const ai = await summarizeWithLLM(item, card, max, kind);
+    const zh = ai || chineseSentence(card, max);
+    // 已经是元数据兜底，又没有拿到更好的内容，就别来回改
+    if (!zh && item.descSource === "meta" && !REFRESH_DESC) continue;
+    const text = zh || clipText(metaDescription(item, kind), max);
+    if (!text) continue;
+    item[field] = text;
+    item.descSource = ai ? "ai" : zh ? "card" : "meta";
+    item.descUpdated = new Date().toISOString().slice(0, 10);
+    used += 1;
+    console.log(`  ✎ ${item.name || item.id}：${text}`);
+    await sleep(350);
+  }
+  if (used) console.log(`已补 ${used} 条介绍（上限 ${ENRICH_LIMIT}）`);
+  else console.log("没有需要补介绍的条目");
 }
 
 /** Ollama 模型库按热度排序，取前 N 个 slug 去 HF 找对应 GGUF 仓库 */
@@ -380,9 +574,20 @@ async function updateMediaFile() {
   const media = JSON.parse(await readFile(MEDIA_FILE, "utf8"));
   const all = [...(media.image || []), ...(media.video || [])];
   const manual = all.filter((m) => m.source !== "auto");
+  // 旧的自动条目要保留：只按仓库去重，不能每天重建（否则介绍每天重写、条目会消失）
+  const prevAuto = all.filter((m) => m.source === "auto");
   const known = new Set(all.map((m) => String(m.repo || "").toLowerCase()));
-  const auto = await discoverMedia(known);
-  const merged = [...manual, ...auto];
+  const fresh = await discoverMedia(known);
+  const seenRepos = new Set();
+  const merged = [...manual, ...prevAuto, ...fresh].filter((m) => {
+    const key = String(m.repo || "").toLowerCase();
+    if (!key) return true;
+    if (seenRepos.has(key)) return false;
+    seenRepos.add(key);
+    return true;
+  });
+  // 自动条目补一段限长介绍；人工 / 官方文案不动
+  await enrichDescriptions(merged, "media");
   const next = {
     ...media,
     updated: new Date().toISOString().slice(0, 10),
@@ -404,7 +609,42 @@ async function updateMediaFile() {
   console.log(`media.json 已更新：${next.image.length} 画图 + ${next.video.length} 视频`);
 }
 
+/** 只补介绍：不发现新模型，避免一次改动混入大量新条目 */
+async function backfillDescriptions() {
+  const catalog = JSON.parse(await readFile(CATALOG, "utf8"));
+  const items = catalog.items || [];
+  await enrichDescriptions(items, "chat");
+
+  const media = JSON.parse(await readFile(MEDIA_FILE, "utf8"));
+  const all = [...(media.image || []), ...(media.video || [])];
+  await enrichDescriptions(all, "media");
+
+  if (DRY) {
+    console.log("[dry-run] 只补介绍，未写入文件");
+    return;
+  }
+  await writeFile(CATALOG, `${JSON.stringify({ ...catalog, items }, null, 2)}\n`, "utf8");
+  await writeFile(
+    MEDIA_FILE,
+    `${JSON.stringify(
+      {
+        ...media,
+        image: all.filter((m) => m.kind !== "video"),
+        video: all.filter((m) => m.kind === "video"),
+      },
+      null,
+      2
+    )}\n`,
+    "utf8"
+  );
+  console.log("已写入 catalog.json / media.json 的介绍");
+}
+
 async function main() {
+  if (DESC_ONLY) {
+    await backfillDescriptions();
+    return;
+  }
   const catalog = JSON.parse(await readFile(CATALOG, "utf8"));
   const items = catalog.items || [];
   const known = new Set(items.map((m) => String(m.repo || "").toLowerCase()));
@@ -595,6 +835,9 @@ async function main() {
     ...applyTag(uncensored),
     ...applyTag(external),
   ].filter((m) => (seenIds.has(m.id) ? false : (seenIds.add(m.id), true)));
+
+  // 自动条目的介绍：模型卡 / LLM 总结，限长后写回 catalog.json
+  await enrichDescriptions(finalItems, "chat");
 
   const next = {
     ...catalog,

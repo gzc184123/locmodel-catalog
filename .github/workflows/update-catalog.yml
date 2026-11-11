@@ -5,6 +5,15 @@ on:
     # 每天 20:00 UTC（北京时间次日 04:00）
     - cron: "0 20 * * *"
   workflow_dispatch:
+    inputs:
+      desc_only:
+        description: "只补模型介绍，不发现新模型"
+        type: boolean
+        default: false
+      refresh_desc:
+        description: "重新生成所有自动条目的介绍"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -16,7 +25,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +34,15 @@ jobs:
           node-version: 20
 
       - name: Discover new GGUF / media models
-        run: node scripts/discover.mjs
+        env:
+          # 可选：读受限仓库的模型卡
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          # 可选：OpenAI 兼容的总结接口（没配就用模型卡/元数据兜底）
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
+          EXTRA_ARGS: ${{ inputs.desc_only && '--desc-only --enrich-limit 200 ' || '' }}${{ inputs.refresh_desc && '--refresh-desc' || '' }}
+        run: node scripts/discover.mjs $EXTRA_ARGS
 
       - name: Commit and push
         run: |

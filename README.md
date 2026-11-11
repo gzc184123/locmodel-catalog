@@ -12,7 +12,7 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 | 文件 | 条数 | 用途 |
 | --- | --- | --- |
 | `catalog.json` | 16 条官方 + 最多 30 条自动收录 | 对话模型目录，客户端会读取 |
-| `media.json` | 13（7 画图 + 6 视频） | 官方画图 / 视频预设清单，仅作对照，客户端暂不读取 |
+| `media.json` | 13 条官方 + 最多 20 条自动收录 | 画图 / 视频模型清单，客户端会读取 |
 
 两份清单都取自官方 LocModel 3.1.0 的内置目录，字段按客户端结构整理。
 
@@ -79,6 +79,29 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 - `sizeGb` 只算主体权重，不含文本编码器与 VAE
 - `components[].role`：`text_encoder` / `mmproj` / `vae` / `audio_vae` / `connectors` / `diffusion_model_high` / `diffusion_model_low`
 
+## 模型介绍自动生成
+
+自动收录的条目原来只有模板文案（「…的 GGUF 仓库，自动收录」）。现在 `scripts/discover.mjs` 会给它们补一句中文介绍：
+
+1. 拉 `https://huggingface.co/<repo>/raw/main/README.md` 模型卡；
+2. 如果配置了 OpenAI 兼容接口，就把模型卡节选交给它总结；否则优先取模型卡里的中文句子；
+3. 都没有时用元数据兜底（参数、看图、无审查、量化与体积），不编造；
+4. 统一清洗（去徽章 / HTML / 链接 / 代码块），按字符数限长：对话条目 **60** 字、画图 / 视频 **70** 字，可用 `--desc-max` / `--media-max` 调整；
+5. 只改 `source` 为 `auto` / `lmstudio` / `ollama` 的条目，人工 / 官方文案不动；
+6. 写入 `descSource`（`ai` / `card` / `meta`）与 `descUpdated`，AI 写过的不会每天重复调用。
+
+在仓库 Settings → Secrets and variables → Actions 里加这三个 secret 即可启用 AI 总结（任意 OpenAI 兼容服务都行，例如 DeepSeek、SiliconFlow、Moonshot）：
+
+| Secret | 示例 |
+| --- | --- |
+| `LLM_BASE_URL` | `https://api.deepseek.com/v1` |
+| `LLM_API_KEY` | `sk-...` |
+| `LLM_MODEL` | `deepseek-chat` |
+
+可选的 `HF_TOKEN` 用来读受限 / 私有仓库的模型卡。没配 LLM 时流程照常跑，只是介绍来自模型卡或元数据。
+
+手动触发：Actions → Update catalog → Run workflow，勾选「只补模型介绍」即可回填历史条目；勾选「重新生成所有自动条目的介绍」会忽略 `descSource` 全部重写（会产生 LLM 调用费用）。
+
 ## 自动更新（每日）
 
 `.github/workflows/update-catalog.yml` 每天 20:00 UTC（北京时间次日 04:00）跑一次：
@@ -98,6 +121,8 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 node scripts/discover.mjs --dry-run          # 只看会加什么
 node scripts/discover.mjs                    # 真写入 catalog.json
 node scripts/discover.mjs --days 30 --limit 10
+node scripts/discover.mjs --desc-only        # 只补介绍，不发现新模型
+node scripts/discover.mjs --desc-only --refresh-desc --enrich-limit 200   # 全部重写
 ```
 
 ## 更新
