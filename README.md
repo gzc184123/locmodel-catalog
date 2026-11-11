@@ -9,7 +9,7 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 
 | 文件 | 条数 | 用途 |
 | --- | --- | --- |
-| `catalog.json` | 16 | 对话模型目录，客户端会读取 |
+| `catalog.json` | 16 条官方 + 最多 30 条自动收录 | 对话模型目录，客户端会读取 |
 | `media.json` | 13（7 画图 + 6 视频） | 官方画图 / 视频预设清单，仅作对照，客户端暂不读取 |
 
 两份清单都取自官方 LocModel 3.1.0 的内置目录，字段按客户端结构整理。
@@ -76,6 +76,24 @@ Local-Model 的远端推荐目录。客户端（设置 → 模型存放 → 推�
 
 - `sizeGb` 只算主体权重，不含文本编码器与 VAE
 - `components[].role`：`text_encoder` / `mmproj` / `vae` / `audio_vae` / `connectors` / `diffusion_model_high` / `diffusion_model_low`
+
+## 自动更新（每日）
+
+`.github/workflows/update-catalog.yml` 每天 20:00 UTC（北京时间次日 04:00）跑一次：
+
+1. `scripts/discover.mjs` 扫 HuggingFace 白名单发布者（unsloth / lmstudio-community / bartowski / QuantStack / mradermacher / MaziyarPanahi / ggml-org）；
+2. 只留对话类 pipeline、近 120 天更新、下载 ≥ 3000 或点赞 ≥ 30 的仓库；unsloth 近 30 天的新仓库不受热度限制；
+3. 读取仓库真实文件列表，生成量化档位与体积，跳过 >120 GB、非对话、带下划线（第三方微调 / 合并版）的仓库；
+4. 新条目追加为 `source: "auto"`，自动条目最多 30 条，按更新时间淘汰；人工 / 官方条目不会被改动或删除；
+5. 有变化才 commit + push，并顺手 purge jsDelivr。
+
+本机手动跑：
+
+```powershell
+node scripts/discover.mjs --dry-run          # 只看会加什么
+node scripts/discover.mjs                    # 真写入 catalog.json
+node scripts/discover.mjs --days 30 --limit 10
+```
 
 ## 更新
 
