@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-11-12",
+  "updated": "2026-11-13",
   "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
   "image": [
     {
@@ -1970,6 +1970,906 @@
           "quant": "Q2_K",
           "file": "flux1-dev-Q2_K.gguf",
           "sizeGb": 3.8
+        }
+      ]
+    },
+    {
+      "id": "flux-1-schnell",
+      "name": "FLUX.1 schnell",
+      "kind": "image",
+      "repo": "city96/FLUX.1-schnell-gguf",
+      "quant": "Q4_K_S",
+      "sizeGb": 6.3,
+      "note": "图片生成模型；推荐 Q4_K_S（6.3 GB）。",
+      "quants": [
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 176446,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "flux1-schnell-F16.gguf",
+          "sizeGb": 22.1
+        },
+        {
+          "quant": "Q8_0",
+          "file": "flux1-schnell-Q8_0.gguf",
+          "sizeGb": 11.8
+        },
+        {
+          "quant": "Q6_K",
+          "file": "flux1-schnell-Q6_K.gguf",
+          "sizeGb": 9.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "flux1-schnell-Q5_1.gguf",
+          "sizeGb": 8.4
+        },
+        {
+          "quant": "Q5_0",
+          "file": "flux1-schnell-Q5_0.gguf",
+          "sizeGb": 7.7
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "flux1-schnell-Q5_K_S.gguf",
+          "sizeGb": 7.7
+        },
+        {
+          "quant": "Q4_1",
+          "file": "flux1-schnell-Q4_1.gguf",
+          "sizeGb": 7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "flux1-schnell-Q4_0.gguf",
+          "sizeGb": 6.3
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "flux1-schnell-Q4_K_S.gguf",
+          "sizeGb": 6.3
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "flux1-schnell-Q3_K_S.gguf",
+          "sizeGb": 4.9
+        },
+        {
+          "quant": "Q2_K",
+          "file": "flux1-schnell-Q2_K.gguf",
+          "sizeGb": 3.7
+        }
+      ]
+    },
+    {
+      "id": "flux-2-dev",
+      "name": "FLUX.2 dev",
+      "kind": "image",
+      "repo": "city96/FLUX.2-dev-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 18.7,
+      "note": "图片生成模型；推荐 Q4_K_M（18.7 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 87326,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "flux2-dev-BF16.gguf",
+          "sizeGb": 60
+        },
+        {
+          "quant": "Q8_0",
+          "file": "flux2-dev-Q8_0.gguf",
+          "sizeGb": 32.6
+        },
+        {
+          "quant": "Q6_K",
+          "file": "flux2-dev-Q6_K.gguf",
+          "sizeGb": 25.5
+        },
+        {
+          "quant": "Q5_1",
+          "file": "flux2-dev-Q5_1.gguf",
+          "sizeGb": 23.5
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "flux2-dev-Q5_K_M.gguf",
+          "sizeGb": 22.4
+        },
+        {
+          "quant": "Q5_0",
+          "file": "flux2-dev-Q5_0.gguf",
+          "sizeGb": 21.6
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "flux2-dev-Q5_K_S.gguf",
+          "sizeGb": 21.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "flux2-dev-Q4_1.gguf",
+          "sizeGb": 19.8
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "flux2-dev-Q4_K_M.gguf",
+          "sizeGb": 18.7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "flux2-dev-Q4_0.gguf",
+          "sizeGb": 18
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "flux2-dev-Q4_K_S.gguf",
+          "sizeGb": 18
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "flux2-dev-Q3_K_M.gguf",
+          "sizeGb": 14.9
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "flux2-dev-Q3_K_S.gguf",
+          "sizeGb": 14.7
+        },
+        {
+          "quant": "Q2_K",
+          "file": "flux2-dev-Q2_K.gguf",
+          "sizeGb": 12
+        }
+      ]
+    },
+    {
+      "id": "qwen-image",
+      "name": "Qwen Image",
+      "kind": "image",
+      "repo": "city96/Qwen-Image-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 12.2,
+      "note": "图片生成模型；推荐 Q4_K_M（12.2 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 64385,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "qwen-image-BF16.gguf",
+          "sizeGb": 38.1
+        },
+        {
+          "quant": "Q8_0",
+          "file": "qwen-image-Q8_0.gguf",
+          "sizeGb": 20.3
+        },
+        {
+          "quant": "Q6_K",
+          "file": "qwen-image-Q6_K.gguf",
+          "sizeGb": 15.7
+        },
+        {
+          "quant": "Q5_1",
+          "file": "qwen-image-Q5_1.gguf",
+          "sizeGb": 14.3
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "qwen-image-Q5_K_M.gguf",
+          "sizeGb": 13.9
+        },
+        {
+          "quant": "Q5_0",
+          "file": "qwen-image-Q5_0.gguf",
+          "sizeGb": 13.4
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "qwen-image-Q5_K_S.gguf",
+          "sizeGb": 13.1
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "qwen-image-Q4_K_M.gguf",
+          "sizeGb": 12.2
+        },
+        {
+          "quant": "Q4_1",
+          "file": "qwen-image-Q4_1.gguf",
+          "sizeGb": 12
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "qwen-image-Q4_K_S.gguf",
+          "sizeGb": 11.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "qwen-image-Q4_0.gguf",
+          "sizeGb": 11
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "qwen-image-Q3_K_M.gguf",
+          "sizeGb": 9
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "qwen-image-Q3_K_S.gguf",
+          "sizeGb": 8.3
+        },
+        {
+          "quant": "Q2_K",
+          "file": "qwen-image-Q2_K.gguf",
+          "sizeGb": 6.6
+        }
+      ]
+    },
+    {
+      "id": "stable-diffusion-3-5-large",
+      "name": "stable diffusion 3.5 large",
+      "kind": "image",
+      "repo": "city96/stable-diffusion-3.5-large-gguf",
+      "quant": "Q4_0",
+      "sizeGb": 4.4,
+      "note": "图片生成模型；推荐 Q4_0（4.4 GB）。",
+      "quants": [
+        "Q4_0",
+        "Q4_1",
+        "Q8_0",
+        "F16",
+        "Q5_0",
+        "Q5_1"
+      ],
+      "source": "auto",
+      "downloads": 12900,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "sd3.5_large-F16.gguf",
+          "sizeGb": 15.2
+        },
+        {
+          "quant": "Q8_0",
+          "file": "sd3.5_large-Q8_0.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "sd3.5_large-Q5_1.gguf",
+          "sizeGb": 5.8
+        },
+        {
+          "quant": "Q5_0",
+          "file": "sd3.5_large-Q5_0.gguf",
+          "sizeGb": 5.4
+        },
+        {
+          "quant": "Q4_1",
+          "file": "sd3.5_large-Q4_1.gguf",
+          "sizeGb": 4.9
+        },
+        {
+          "quant": "Q4_0",
+          "file": "sd3.5_large-Q4_0.gguf",
+          "sizeGb": 4.4
+        }
+      ]
+    },
+    {
+      "id": "hidream-i1-dev",
+      "name": "HiDream I1 Dev",
+      "kind": "image",
+      "repo": "city96/HiDream-I1-Dev-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.7,
+      "note": "图片生成模型；推荐 Q4_K_M（10.7 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 10577,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "hidream-i1-dev-BF16.gguf",
+          "sizeGb": 31.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "hidream-i1-dev-Q8_0.gguf",
+          "sizeGb": 17.4
+        },
+        {
+          "quant": "Q6_K",
+          "file": "hidream-i1-dev-Q6_K.gguf",
+          "sizeGb": 13.7
+        },
+        {
+          "quant": "Q5_1",
+          "file": "hidream-i1-dev-Q5_1.gguf",
+          "sizeGb": 12.6
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "hidream-i1-dev-Q5_K_M.gguf",
+          "sizeGb": 12.1
+        },
+        {
+          "quant": "Q5_0",
+          "file": "hidream-i1-dev-Q5_0.gguf",
+          "sizeGb": 11.9
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "hidream-i1-dev-Q5_K_S.gguf",
+          "sizeGb": 11.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "hidream-i1-dev-Q4_1.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "hidream-i1-dev-Q4_K_M.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "hidream-i1-dev-Q4_K_S.gguf",
+          "sizeGb": 10.2
+        },
+        {
+          "quant": "Q4_0",
+          "file": "hidream-i1-dev-Q4_0.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "hidream-i1-dev-Q3_K_M.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "hidream-i1-dev-Q3_K_S.gguf",
+          "sizeGb": 7.7
+        },
+        {
+          "quant": "Q2_K",
+          "file": "hidream-i1-dev-Q2_K.gguf",
+          "sizeGb": 6.1
+        }
+      ]
+    },
+    {
+      "id": "hidream-i1-full",
+      "name": "HiDream I1 Full",
+      "kind": "image",
+      "repo": "city96/HiDream-I1-Full-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.7,
+      "note": "图片生成模型；推荐 Q4_K_M（10.7 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 8841,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "hidream-i1-full-F16.gguf",
+          "sizeGb": 31.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "hidream-i1-full-Q8_0.gguf",
+          "sizeGb": 17.4
+        },
+        {
+          "quant": "Q6_K",
+          "file": "hidream-i1-full-Q6_K.gguf",
+          "sizeGb": 13.7
+        },
+        {
+          "quant": "Q5_1",
+          "file": "hidream-i1-full-Q5_1.gguf",
+          "sizeGb": 12.6
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "hidream-i1-full-Q5_K_M.gguf",
+          "sizeGb": 12.1
+        },
+        {
+          "quant": "Q5_0",
+          "file": "hidream-i1-full-Q5_0.gguf",
+          "sizeGb": 11.8
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "hidream-i1-full-Q5_K_S.gguf",
+          "sizeGb": 11.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "hidream-i1-full-Q4_1.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "hidream-i1-full-Q4_K_M.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "hidream-i1-full-Q4_K_S.gguf",
+          "sizeGb": 10.1
+        },
+        {
+          "quant": "Q4_0",
+          "file": "hidream-i1-full-Q4_0.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "hidream-i1-full-Q3_K_M.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "hidream-i1-full-Q3_K_S.gguf",
+          "sizeGb": 7.6
+        },
+        {
+          "quant": "Q2_K",
+          "file": "hidream-i1-full-Q2_K.gguf",
+          "sizeGb": 6.1
+        }
+      ]
+    },
+    {
+      "id": "hidream-i1-fast",
+      "name": "HiDream I1 Fast",
+      "kind": "image",
+      "repo": "city96/HiDream-I1-Fast-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.7,
+      "note": "图片生成模型；推荐 Q4_K_M（10.7 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 7862,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "hidream-i1-fast-BF16.gguf",
+          "sizeGb": 31.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "hidream-i1-fast-Q8_0.gguf",
+          "sizeGb": 17.4
+        },
+        {
+          "quant": "Q6_K",
+          "file": "hidream-i1-fast-Q6_K.gguf",
+          "sizeGb": 13.7
+        },
+        {
+          "quant": "Q5_1",
+          "file": "hidream-i1-fast-Q5_1.gguf",
+          "sizeGb": 12.6
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "hidream-i1-fast-Q5_K_M.gguf",
+          "sizeGb": 12.1
+        },
+        {
+          "quant": "Q5_0",
+          "file": "hidream-i1-fast-Q5_0.gguf",
+          "sizeGb": 11.9
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "hidream-i1-fast-Q5_K_S.gguf",
+          "sizeGb": 11.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "hidream-i1-fast-Q4_1.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "hidream-i1-fast-Q4_K_M.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "hidream-i1-fast-Q4_K_S.gguf",
+          "sizeGb": 10.2
+        },
+        {
+          "quant": "Q4_0",
+          "file": "hidream-i1-fast-Q4_0.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "hidream-i1-fast-Q3_K_M.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "hidream-i1-fast-Q3_K_S.gguf",
+          "sizeGb": 7.7
+        },
+        {
+          "quant": "Q2_K",
+          "file": "hidream-i1-fast-Q2_K.gguf",
+          "sizeGb": 6.1
+        }
+      ]
+    },
+    {
+      "id": "stable-diffusion-3-5-medium",
+      "name": "stable diffusion 3.5 medium",
+      "kind": "image",
+      "repo": "city96/stable-diffusion-3.5-medium-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 1.7,
+      "note": "图片生成模型；推荐 Q4_K_M（1.7 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 5376,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "sd3.5_medium-F16.gguf",
+          "sizeGb": 4.6
+        },
+        {
+          "quant": "Q8_0",
+          "file": "sd3.5_medium-Q8_0.gguf",
+          "sizeGb": 2.7
+        },
+        {
+          "quant": "Q6_K",
+          "file": "sd3.5_medium-Q6_K.gguf",
+          "sizeGb": 2.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "sd3.5_medium-Q5_1.gguf",
+          "sizeGb": 2
+        },
+        {
+          "quant": "Q5_0",
+          "file": "sd3.5_medium-Q5_0.gguf",
+          "sizeGb": 1.9
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "sd3.5_medium-Q5_K_M.gguf",
+          "sizeGb": 1.9
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "sd3.5_medium-Q5_K_S.gguf",
+          "sizeGb": 1.9
+        },
+        {
+          "quant": "Q4_1",
+          "file": "sd3.5_medium-Q4_1.gguf",
+          "sizeGb": 1.8
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "sd3.5_medium-Q4_K_M.gguf",
+          "sizeGb": 1.7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "sd3.5_medium-Q4_0.gguf",
+          "sizeGb": 1.6
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "sd3.5_medium-Q4_K_S.gguf",
+          "sizeGb": 1.6
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "sd3.5_medium-Q3_K_M.gguf",
+          "sizeGb": 1.4
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "sd3.5_medium-Q3_K_S.gguf",
+          "sizeGb": 1.3
+        }
+      ]
+    },
+    {
+      "id": "stable-diffusion-3-5-large-turbo",
+      "name": "stable diffusion 3.5 large turbo",
+      "kind": "image",
+      "repo": "city96/stable-diffusion-3.5-large-turbo-gguf",
+      "quant": "Q4_0",
+      "sizeGb": 4.4,
+      "note": "图片生成模型；推荐 Q4_0（4.4 GB）。",
+      "quants": [
+        "Q4_0",
+        "Q4_1",
+        "Q8_0",
+        "F16",
+        "Q5_0",
+        "Q5_1"
+      ],
+      "source": "auto",
+      "downloads": 4198,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "sd3.5_large_turbo-F16.gguf",
+          "sizeGb": 15.2
+        },
+        {
+          "quant": "Q8_0",
+          "file": "sd3.5_large_turbo-Q8_0.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "sd3.5_large_turbo-Q5_1.gguf",
+          "sizeGb": 5.8
+        },
+        {
+          "quant": "Q5_0",
+          "file": "sd3.5_large_turbo-Q5_0.gguf",
+          "sizeGb": 5.4
+        },
+        {
+          "quant": "Q4_1",
+          "file": "sd3.5_large_turbo-Q4_1.gguf",
+          "sizeGb": 4.9
+        },
+        {
+          "quant": "Q4_0",
+          "file": "sd3.5_large_turbo-Q4_0.gguf",
+          "sizeGb": 4.4
+        }
+      ]
+    },
+    {
+      "id": "auraflow-v0-3",
+      "name": "AuraFlow v0.3",
+      "kind": "image",
+      "repo": "city96/AuraFlow-v0.3-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 3.8,
+      "note": "图片生成模型；推荐 Q4_K_M（3.8 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 3823,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "F16",
+          "file": "aura_flow_0.3-F16.gguf",
+          "sizeGb": 12.8
+        },
+        {
+          "quant": "Q8_0",
+          "file": "aura_flow_0.3-Q8_0.gguf",
+          "sizeGb": 6.8
+        },
+        {
+          "quant": "Q6_K",
+          "file": "aura_flow_0.3-Q6_K.gguf",
+          "sizeGb": 5.3
+        },
+        {
+          "quant": "Q5_1",
+          "file": "aura_flow_0.3-Q5_1.gguf",
+          "sizeGb": 4.9
+        },
+        {
+          "quant": "Q5_0",
+          "file": "aura_flow_0.3-Q5_0.gguf",
+          "sizeGb": 4.5
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "aura_flow_0.3-Q5_K_M.gguf",
+          "sizeGb": 4.5
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "aura_flow_0.3-Q5_K_S.gguf",
+          "sizeGb": 4.5
+        },
+        {
+          "quant": "Q4_1",
+          "file": "aura_flow_0.3-Q4_1.gguf",
+          "sizeGb": 4.1
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "aura_flow_0.3-Q4_K_M.gguf",
+          "sizeGb": 3.8
+        },
+        {
+          "quant": "Q4_0",
+          "file": "aura_flow_0.3-Q4_0.gguf",
+          "sizeGb": 3.7
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "aura_flow_0.3-Q4_K_S.gguf",
+          "sizeGb": 3.7
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "aura_flow_0.3-Q3_K_M.gguf",
+          "sizeGb": 2.9
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "aura_flow_0.3-Q3_K_S.gguf",
+          "sizeGb": 2.8
+        },
+        {
+          "quant": "Q2_K",
+          "file": "aura_flow_0.3-Q2_K.gguf",
+          "sizeGb": 2.2
         }
       ]
     }
@@ -5065,6 +5965,1018 @@
           "quant": "Q2_K",
           "file": "LTXV-13B-0.9.8-dev-Q2_K.gguf",
           "sizeGb": 4.4
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-i2v-14b-480p",
+      "name": "Wan2.1 I2V 14B 480P",
+      "kind": "video",
+      "repo": "city96/Wan2.1-I2V-14B-480P-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.6,
+      "note": "视频生成模型；推荐 Q4_K_M（10.6 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 230930,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-i2v-14b-480p-BF16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "F16",
+          "file": "wan2.1-i2v-14b-480p-F16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-i2v-14b-480p-Q8_0.gguf",
+          "sizeGb": 16.9
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-i2v-14b-480p-Q6_K.gguf",
+          "sizeGb": 13.3
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-i2v-14b-480p-Q5_1.gguf",
+          "sizeGb": 12.2
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-i2v-14b-480p-Q5_K_M.gguf",
+          "sizeGb": 11.9
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-i2v-14b-480p-Q5_0.gguf",
+          "sizeGb": 11.4
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-i2v-14b-480p-Q5_K_S.gguf",
+          "sizeGb": 11.3
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-i2v-14b-480p-Q4_K_M.gguf",
+          "sizeGb": 10.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-i2v-14b-480p-Q4_1.gguf",
+          "sizeGb": 10.3
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-i2v-14b-480p-Q4_K_S.gguf",
+          "sizeGb": 9.7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-i2v-14b-480p-Q4_0.gguf",
+          "sizeGb": 9.5
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-i2v-14b-480p-Q3_K_M.gguf",
+          "sizeGb": 8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-i2v-14b-480p-Q3_K_S.gguf",
+          "sizeGb": 7.4
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-t2v-14b",
+      "name": "Wan2.1 T2V 14B",
+      "kind": "video",
+      "repo": "city96/Wan2.1-T2V-14B-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 9.4,
+      "note": "视频生成模型；推荐 Q4_K_M（9.4 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 48682,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-t2v-14b-BF16.gguf",
+          "sizeGb": 27.1
+        },
+        {
+          "quant": "F16",
+          "file": "wan2.1-t2v-14b-F16.gguf",
+          "sizeGb": 27.1
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-t2v-14b-Q8_0.gguf",
+          "sizeGb": 14.8
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-t2v-14b-Q6_K.gguf",
+          "sizeGb": 11.6
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-t2v-14b-Q5_1.gguf",
+          "sizeGb": 10.7
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-t2v-14b-Q5_K_M.gguf",
+          "sizeGb": 10.5
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-t2v-14b-Q5_0.gguf",
+          "sizeGb": 10
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-t2v-14b-Q5_K_S.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-t2v-14b-Q4_K_M.gguf",
+          "sizeGb": 9.4
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-t2v-14b-Q4_1.gguf",
+          "sizeGb": 9.1
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-t2v-14b-Q4_K_S.gguf",
+          "sizeGb": 8.6
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-t2v-14b-Q4_0.gguf",
+          "sizeGb": 8.4
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-t2v-14b-Q3_K_M.gguf",
+          "sizeGb": 7.1
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-t2v-14b-Q3_K_S.gguf",
+          "sizeGb": 6.5
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-flf2v-14b-720p",
+      "name": "Wan2.1 FLF2V 14B 720P",
+      "kind": "video",
+      "repo": "city96/Wan2.1-FLF2V-14B-720P-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.6,
+      "note": "视频生成模型；推荐 Q4_K_M（10.6 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 33926,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-flf2v-14b-720p-BF16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "F16",
+          "file": "wan2.1-flf2v-14b-720p-F16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-flf2v-14b-720p-Q8_0.gguf",
+          "sizeGb": 16.9
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-flf2v-14b-720p-Q6_K.gguf",
+          "sizeGb": 13.3
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-flf2v-14b-720p-Q5_1.gguf",
+          "sizeGb": 12.2
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-flf2v-14b-720p-Q5_K_M.gguf",
+          "sizeGb": 11.9
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-flf2v-14b-720p-Q5_0.gguf",
+          "sizeGb": 11.4
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-flf2v-14b-720p-Q5_K_S.gguf",
+          "sizeGb": 11.3
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-flf2v-14b-720p-Q4_K_M.gguf",
+          "sizeGb": 10.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-flf2v-14b-720p-Q4_1.gguf",
+          "sizeGb": 10.3
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-flf2v-14b-720p-Q4_K_S.gguf",
+          "sizeGb": 9.7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-flf2v-14b-720p-Q4_0.gguf",
+          "sizeGb": 9.5
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-flf2v-14b-720p-Q3_K_M.gguf",
+          "sizeGb": 8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-flf2v-14b-720p-Q3_K_S.gguf",
+          "sizeGb": 7.4
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-i2v-14b-720p",
+      "name": "Wan2.1 I2V 14B 720P",
+      "kind": "video",
+      "repo": "city96/Wan2.1-I2V-14B-720P-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.6,
+      "note": "视频生成模型；推荐 Q4_K_M（10.6 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 27657,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-i2v-14b-720p-BF16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "F16",
+          "file": "wan2.1-i2v-14b-720p-F16.gguf",
+          "sizeGb": 31
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-i2v-14b-720p-Q8_0.gguf",
+          "sizeGb": 16.9
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-i2v-14b-720p-Q6_K.gguf",
+          "sizeGb": 13.3
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-i2v-14b-720p-Q5_1.gguf",
+          "sizeGb": 12.2
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-i2v-14b-720p-Q5_K_M.gguf",
+          "sizeGb": 11.9
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-i2v-14b-720p-Q5_0.gguf",
+          "sizeGb": 11.4
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-i2v-14b-720p-Q5_K_S.gguf",
+          "sizeGb": 11.3
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-i2v-14b-720p-Q4_K_M.gguf",
+          "sizeGb": 10.6
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-i2v-14b-720p-Q4_1.gguf",
+          "sizeGb": 10.3
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-i2v-14b-720p-Q4_K_S.gguf",
+          "sizeGb": 9.7
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-i2v-14b-720p-Q4_0.gguf",
+          "sizeGb": 9.5
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-i2v-14b-720p-Q3_K_M.gguf",
+          "sizeGb": 8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-i2v-14b-720p-Q3_K_S.gguf",
+          "sizeGb": 7.4
+        }
+      ]
+    },
+    {
+      "id": "hunyuanvideo",
+      "name": "HunyuanVideo",
+      "kind": "video",
+      "repo": "city96/HunyuanVideo-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 7.3,
+      "note": "视频生成模型；推荐 Q4_K_M（7.3 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 13918,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "hunyuan-video-t2v-720p-BF16.gguf",
+          "sizeGb": 23.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "hunyuan-video-t2v-720p-Q8_0.gguf",
+          "sizeGb": 13
+        },
+        {
+          "quant": "Q6_K",
+          "file": "hunyuan-video-t2v-720p-Q6_K.gguf",
+          "sizeGb": 10.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "hunyuan-video-t2v-720p-Q5_1.gguf",
+          "sizeGb": 9.4
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "hunyuan-video-t2v-720p-Q5_K_M.gguf",
+          "sizeGb": 8.8
+        },
+        {
+          "quant": "Q5_0",
+          "file": "hunyuan-video-t2v-720p-Q5_0.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "hunyuan-video-t2v-720p-Q5_K_S.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q4_1",
+          "file": "hunyuan-video-t2v-720p-Q4_1.gguf",
+          "sizeGb": 7.9
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "hunyuan-video-t2v-720p-Q4_K_M.gguf",
+          "sizeGb": 7.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "hunyuan-video-t2v-720p-Q4_0.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "hunyuan-video-t2v-720p-Q4_K_S.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "hunyuan-video-t2v-720p-Q3_K_M.gguf",
+          "sizeGb": 5.8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "hunyuan-video-t2v-720p-Q3_K_S.gguf",
+          "sizeGb": 5.7
+        }
+      ]
+    },
+    {
+      "id": "ltx-video-0-9-6-distilled",
+      "name": "LTX Video 0.9.6 distilled",
+      "kind": "video",
+      "repo": "city96/LTX-Video-0.9.6-distilled-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 1.2,
+      "note": "视频生成模型；推荐 Q4_K_M（1.2 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 11326,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-BF16.gguf",
+          "sizeGb": 3.6
+        },
+        {
+          "quant": "BF16",
+          "file": "LTX-Video-0.9.6-VAE-BF16.safetensors",
+          "sizeGb": 2.3
+        },
+        {
+          "quant": "Q8_0",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q8_0.gguf",
+          "sizeGb": 1.9
+        },
+        {
+          "quant": "Q6_K",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q6_K.gguf",
+          "sizeGb": 1.5
+        },
+        {
+          "quant": "Q5_1",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q5_1.gguf",
+          "sizeGb": 1.4
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q5_K_M.gguf",
+          "sizeGb": 1.4
+        },
+        {
+          "quant": "Q5_0",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q5_0.gguf",
+          "sizeGb": 1.3
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q5_K_S.gguf",
+          "sizeGb": 1.3
+        },
+        {
+          "quant": "Q4_1",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q4_1.gguf",
+          "sizeGb": 1.2
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q4_K_M.gguf",
+          "sizeGb": 1.2
+        },
+        {
+          "quant": "Q4_0",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q4_0.gguf",
+          "sizeGb": 1.1
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q4_K_S.gguf",
+          "sizeGb": 1.1
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q3_K_M.gguf",
+          "sizeGb": 0.9
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "ltxv-2b-0.9.6-distilled-04-25-Q3_K_S.gguf",
+          "sizeGb": 0.8
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-fun-14b-control",
+      "name": "Wan2.1 Fun 14B Control",
+      "kind": "video",
+      "repo": "city96/Wan2.1-Fun-14B-Control-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.1,
+      "note": "视频生成模型；推荐 Q4_K_M（10.1 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 11152,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-fun-14b-control-BF16.gguf",
+          "sizeGb": 30.6
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-fun-14b-control-Q8_0.gguf",
+          "sizeGb": 16.5
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-fun-14b-control-Q6_K.gguf",
+          "sizeGb": 12.8
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-fun-14b-control-Q5_1.gguf",
+          "sizeGb": 11.8
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-fun-14b-control-Q5_K_M.gguf",
+          "sizeGb": 11.4
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-fun-14b-control-Q5_0.gguf",
+          "sizeGb": 11
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-fun-14b-control-Q5_K_S.gguf",
+          "sizeGb": 10.8
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-fun-14b-control-Q4_K_M.gguf",
+          "sizeGb": 10.1
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-fun-14b-control-Q4_1.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-fun-14b-control-Q4_K_S.gguf",
+          "sizeGb": 9.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-fun-14b-control-Q4_0.gguf",
+          "sizeGb": 9.1
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-fun-14b-control-Q3_K_M.gguf",
+          "sizeGb": 7.6
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-fun-14b-control-Q3_K_S.gguf",
+          "sizeGb": 6.9
+        },
+        {
+          "quant": "Q2_K",
+          "file": "wan2.1-fun-14b-control-Q2_K.gguf",
+          "sizeGb": 5.6
+        }
+      ]
+    },
+    {
+      "id": "ltx-video",
+      "name": "LTX Video",
+      "kind": "video",
+      "repo": "city96/LTX-Video-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 1.3,
+      "note": "视频生成模型；推荐 Q4_K_M（1.3 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "F16",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 10937,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "ltx-video-2b-v0.9-BF16.gguf",
+          "sizeGb": 3.7
+        },
+        {
+          "quant": "F16",
+          "file": "ltx-video-2b-v0.9-F16.gguf",
+          "sizeGb": 3.7
+        },
+        {
+          "quant": "Q8_0",
+          "file": "ltx-video-2b-v0.9-Q8_0.gguf",
+          "sizeGb": 2
+        },
+        {
+          "quant": "Q6_K",
+          "file": "ltx-video-2b-v0.9-Q6_K.gguf",
+          "sizeGb": 1.6
+        },
+        {
+          "quant": "Q5_1",
+          "file": "ltx-video-2b-v0.9-Q5_1.gguf",
+          "sizeGb": 1.5
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "ltx-video-2b-v0.9-Q5_K_M.gguf",
+          "sizeGb": 1.5
+        },
+        {
+          "quant": "Q5_0",
+          "file": "ltx-video-2b-v0.9-Q5_0.gguf",
+          "sizeGb": 1.4
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "ltx-video-2b-v0.9-Q5_K_S.gguf",
+          "sizeGb": 1.4
+        },
+        {
+          "quant": "Q4_1",
+          "file": "ltx-video-2b-v0.9-Q4_1.gguf",
+          "sizeGb": 1.3
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "ltx-video-2b-v0.9-Q4_K_M.gguf",
+          "sizeGb": 1.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "ltx-video-2b-v0.9-Q4_0.gguf",
+          "sizeGb": 1.2
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "ltx-video-2b-v0.9-Q4_K_S.gguf",
+          "sizeGb": 1.2
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "ltx-video-2b-v0.9-Q3_K_M.gguf",
+          "sizeGb": 1
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "ltx-video-2b-v0.9-Q3_K_S.gguf",
+          "sizeGb": 0.9
+        },
+        {
+          "quant": "BF16",
+          "file": "LTX-Video-VAE-BF16.safetensors",
+          "sizeGb": 0.8
+        }
+      ]
+    },
+    {
+      "id": "hunyuanvideo-i2v",
+      "name": "HunyuanVideo I2V",
+      "kind": "video",
+      "repo": "city96/HunyuanVideo-I2V-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 7.3,
+      "note": "视频生成模型；推荐 Q4_K_M（7.3 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 7880,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "hunyuan-video-i2v-720p-BF16.gguf",
+          "sizeGb": 23.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "hunyuan-video-i2v-720p-Q8_0.gguf",
+          "sizeGb": 13
+        },
+        {
+          "quant": "Q6_K",
+          "file": "hunyuan-video-i2v-720p-Q6_K.gguf",
+          "sizeGb": 10.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "hunyuan-video-i2v-720p-Q5_1.gguf",
+          "sizeGb": 9.4
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "hunyuan-video-i2v-720p-Q5_K_M.gguf",
+          "sizeGb": 8.8
+        },
+        {
+          "quant": "Q5_0",
+          "file": "hunyuan-video-i2v-720p-Q5_0.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "hunyuan-video-i2v-720p-Q5_K_S.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q4_1",
+          "file": "hunyuan-video-i2v-720p-Q4_1.gguf",
+          "sizeGb": 7.9
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "hunyuan-video-i2v-720p-Q4_K_M.gguf",
+          "sizeGb": 7.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "hunyuan-video-i2v-720p-Q4_0.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "hunyuan-video-i2v-720p-Q4_K_S.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "hunyuan-video-i2v-720p-Q3_K_M.gguf",
+          "sizeGb": 5.8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "hunyuan-video-i2v-720p-Q3_K_S.gguf",
+          "sizeGb": 5.7
+        }
+      ]
+    },
+    {
+      "id": "wan2-1-fun-14b-inp",
+      "name": "Wan2.1 Fun 14B InP",
+      "kind": "video",
+      "repo": "city96/Wan2.1-Fun-14B-InP-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 10.1,
+      "note": "视频生成模型；推荐 Q4_K_M（10.1 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 6230,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-13",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "wan2.1-fun-14b-inp-BF16.gguf",
+          "sizeGb": 30.5
+        },
+        {
+          "quant": "Q8_0",
+          "file": "wan2.1-fun-14b-inp-Q8_0.gguf",
+          "sizeGb": 16.5
+        },
+        {
+          "quant": "Q6_K",
+          "file": "wan2.1-fun-14b-inp-Q6_K.gguf",
+          "sizeGb": 12.8
+        },
+        {
+          "quant": "Q5_1",
+          "file": "wan2.1-fun-14b-inp-Q5_1.gguf",
+          "sizeGb": 11.8
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "wan2.1-fun-14b-inp-Q5_K_M.gguf",
+          "sizeGb": 11.4
+        },
+        {
+          "quant": "Q5_0",
+          "file": "wan2.1-fun-14b-inp-Q5_0.gguf",
+          "sizeGb": 11
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "wan2.1-fun-14b-inp-Q5_K_S.gguf",
+          "sizeGb": 10.8
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "wan2.1-fun-14b-inp-Q4_K_M.gguf",
+          "sizeGb": 10.1
+        },
+        {
+          "quant": "Q4_1",
+          "file": "wan2.1-fun-14b-inp-Q4_1.gguf",
+          "sizeGb": 9.9
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "wan2.1-fun-14b-inp-Q4_K_S.gguf",
+          "sizeGb": 9.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "wan2.1-fun-14b-inp-Q4_0.gguf",
+          "sizeGb": 9.1
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "wan2.1-fun-14b-inp-Q3_K_M.gguf",
+          "sizeGb": 7.5
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "wan2.1-fun-14b-inp-Q3_K_S.gguf",
+          "sizeGb": 6.9
+        },
+        {
+          "quant": "Q2_K",
+          "file": "wan2.1-fun-14b-inp-Q2_K.gguf",
+          "sizeGb": 5.6
         }
       ]
     }
