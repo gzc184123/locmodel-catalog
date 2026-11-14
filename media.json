@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-11-13",
+  "updated": "2026-11-14",
   "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
   "image": [
     {
@@ -6977,6 +6977,102 @@
           "quant": "Q2_K",
           "file": "wan2.1-fun-14b-inp-Q2_K.gguf",
           "sizeGb": 5.6
+        }
+      ]
+    },
+    {
+      "id": "fasthunyuan",
+      "name": "FastHunyuan",
+      "kind": "video",
+      "repo": "city96/FastHunyuan-gguf",
+      "quant": "Q4_K_M",
+      "sizeGb": 7.3,
+      "note": "视频生成模型；推荐 Q4_K_M（7.3 GB）。",
+      "quants": [
+        "Q4_K_M",
+        "Q4_K_S",
+        "Q4_0",
+        "Q4_1",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "BF16",
+        "Q3_K_S",
+        "Q5_0",
+        "Q5_1",
+        "Q5_K_S"
+      ],
+      "source": "auto",
+      "downloads": 3747,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-14",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "fast-hunyuan-video-t2v-720p-BF16.gguf",
+          "sizeGb": 23.9
+        },
+        {
+          "quant": "Q8_0",
+          "file": "fast-hunyuan-video-t2v-720p-Q8_0.gguf",
+          "sizeGb": 13
+        },
+        {
+          "quant": "Q6_K",
+          "file": "fast-hunyuan-video-t2v-720p-Q6_K.gguf",
+          "sizeGb": 10.2
+        },
+        {
+          "quant": "Q5_1",
+          "file": "fast-hunyuan-video-t2v-720p-Q5_1.gguf",
+          "sizeGb": 9.4
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "fast-hunyuan-video-t2v-720p-Q5_K_M.gguf",
+          "sizeGb": 8.8
+        },
+        {
+          "quant": "Q5_0",
+          "file": "fast-hunyuan-video-t2v-720p-Q5_0.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "fast-hunyuan-video-t2v-720p-Q5_K_S.gguf",
+          "sizeGb": 8.7
+        },
+        {
+          "quant": "Q4_1",
+          "file": "fast-hunyuan-video-t2v-720p-Q4_1.gguf",
+          "sizeGb": 7.9
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "fast-hunyuan-video-t2v-720p-Q4_K_M.gguf",
+          "sizeGb": 7.3
+        },
+        {
+          "quant": "Q4_0",
+          "file": "fast-hunyuan-video-t2v-720p-Q4_0.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "fast-hunyuan-video-t2v-720p-Q4_K_S.gguf",
+          "sizeGb": 7.2
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "fast-hunyuan-video-t2v-720p-Q3_K_M.gguf",
+          "sizeGb": 5.8
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "fast-hunyuan-video-t2v-720p-Q3_K_S.gguf",
+          "sizeGb": 5.7
         }
       ]
     }
