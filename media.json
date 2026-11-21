@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-11-17",
+  "updated": "2026-11-21",
   "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
   "image": [
     {
@@ -2948,6 +2948,66 @@
           "quant": "Q3_K_S",
           "file": "flux.1-lite-8B-alpha-Q3_K_S.gguf",
           "sizeGb": 3.5
+        }
+      ]
+    },
+    {
+      "id": "moss-image-sft",
+      "name": "MOSS Image SFT",
+      "kind": "image",
+      "repo": "unsloth/MOSS-Image-SFT-GGUF",
+      "quant": "UD-Q4_K_XL",
+      "sizeGb": 3.2,
+      "note": "图片生成模型；推荐 UD-Q4_K_XL（3.2 GB）。",
+      "quants": [
+        "UD-Q4_K_XL",
+        "Q4_K_M",
+        "UD-Q3_K_XL",
+        "Q8_0",
+        "BF16",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 275179,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-21",
+      "variants": [
+        {
+          "quant": "BF16",
+          "file": "MOSS-Image-SFT-BF16.gguf",
+          "sizeGb": 9.5
+        },
+        {
+          "quant": "Q8_0",
+          "file": "MOSS-Image-SFT-Q8_0.gguf",
+          "sizeGb": 5.1
+        },
+        {
+          "quant": "UD-Q6_K_XL",
+          "file": "MOSS-Image-SFT-UD-Q6_K_XL.gguf",
+          "sizeGb": 4.2
+        },
+        {
+          "quant": "UD-Q5_K_XL",
+          "file": "MOSS-Image-SFT-UD-Q5_K_XL.gguf",
+          "sizeGb": 3.7
+        },
+        {
+          "quant": "UD-Q4_K_XL",
+          "file": "MOSS-Image-SFT-UD-Q4_K_XL.gguf",
+          "sizeGb": 3.2
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "MOSS-Image-SFT-Q4_K_M.gguf",
+          "sizeGb": 3
+        },
+        {
+          "quant": "UD-Q3_K_XL",
+          "file": "MOSS-Image-SFT-UD-Q3_K_XL.gguf",
+          "sizeGb": 2.6
         }
       ]
     }
