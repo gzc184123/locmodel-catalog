@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-11-21",
+  "updated": "2026-11-26",
   "note": "官方 LocModel 3.1.0 的画图 / 视频内置清单 + 每日自动收录的 HuggingFace 仓库；自动条目的组件需按仓库文件核对。",
   "image": [
     {
@@ -3008,6 +3008,108 @@
           "quant": "UD-Q3_K_XL",
           "file": "MOSS-Image-SFT-UD-Q3_K_XL.gguf",
           "sizeGb": 2.6
+        }
+      ]
+    },
+    {
+      "id": "minimax-h3-image",
+      "name": "MiniMax H3 Image",
+      "kind": "image",
+      "repo": "unsloth/MiniMax-H3-Image-GGUF",
+      "quant": "UD-Q4_K_XL",
+      "sizeGb": 12.7,
+      "note": "图片生成模型；推荐 UD-Q4_K_XL（12.7 GB）。",
+      "quants": [
+        "UD-Q4_K_XL",
+        "Q4_K_M",
+        "Q4_K_S",
+        "UD-Q3_K_XL",
+        "Q3_K_M",
+        "Q5_K_M",
+        "Q6_K",
+        "Q8_0",
+        "Q2_K",
+        "Q3_K_S",
+        "Q5_K_S",
+        "UD-Q2_K_XL",
+        "UD-Q5_K_XL",
+        "UD-Q6_K_XL"
+      ],
+      "source": "auto",
+      "downloads": 288328,
+      "lastModified": "",
+      "descSource": "meta",
+      "descUpdated": "2026-11-26",
+      "variants": [
+        {
+          "quant": "Q8_0",
+          "file": "minimax_h3_image_pruned-Q8_0.gguf",
+          "sizeGb": 20.5
+        },
+        {
+          "quant": "UD-Q6_K_XL",
+          "file": "minimax_h3_image_pruned-UD-Q6_K_XL.gguf",
+          "sizeGb": 16.4
+        },
+        {
+          "quant": "Q6_K",
+          "file": "minimax_h3_image_pruned-Q6_K.gguf",
+          "sizeGb": 15.5
+        },
+        {
+          "quant": "UD-Q5_K_XL",
+          "file": "minimax_h3_image_pruned-UD-Q5_K_XL.gguf",
+          "sizeGb": 14.4
+        },
+        {
+          "quant": "Q5_K_M",
+          "file": "minimax_h3_image_pruned-Q5_K_M.gguf",
+          "sizeGb": 13.6
+        },
+        {
+          "quant": "Q5_K_S",
+          "file": "minimax_h3_image_pruned-Q5_K_S.gguf",
+          "sizeGb": 13
+        },
+        {
+          "quant": "UD-Q4_K_XL",
+          "file": "minimax_h3_image_pruned-UD-Q4_K_XL.gguf",
+          "sizeGb": 12.7
+        },
+        {
+          "quant": "Q4_K_M",
+          "file": "minimax_h3_image_pruned-Q4_K_M.gguf",
+          "sizeGb": 11.8
+        },
+        {
+          "quant": "Q4_K_S",
+          "file": "minimax_h3_image_pruned-Q4_K_S.gguf",
+          "sizeGb": 10.8
+        },
+        {
+          "quant": "UD-Q3_K_XL",
+          "file": "minimax_h3_image_pruned-UD-Q3_K_XL.gguf",
+          "sizeGb": 10.6
+        },
+        {
+          "quant": "Q3_K_M",
+          "file": "minimax_h3_image_pruned-Q3_K_M.gguf",
+          "sizeGb": 9.7
+        },
+        {
+          "quant": "Q3_K_S",
+          "file": "minimax_h3_image_pruned-Q3_K_S.gguf",
+          "sizeGb": 8.2
+        },
+        {
+          "quant": "UD-Q2_K_XL",
+          "file": "minimax_h3_image_pruned-UD-Q2_K_XL.gguf",
+          "sizeGb": 8.1
+        },
+        {
+          "quant": "Q2_K",
+          "file": "minimax_h3_image_pruned-Q2_K.gguf",
+          "sizeGb": 7.2
         }
       ]
     }
